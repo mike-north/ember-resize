@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+      "name": "Ember Resize",
+      "folder_exclude_patterns": ["tmp", "bower_components", "node_modules"]
+		}
+	]
+}
