@@ -6,7 +6,7 @@ module.exports = function(/* environment, appConfig */) {
       widthSensitive: true,
       heightSensitive: false,
       debounceTimeout: 200,
-      injectionFactories: ['view']
+      injectionFactories: ['view', 'component']
     }
   };
 };
