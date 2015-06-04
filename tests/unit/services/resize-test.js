@@ -16,7 +16,7 @@ test('it fires "didResize"  when the window is resized', function (assert) {
     didResizeCallCount++;
   });
 
-  var evt = new Event('resize');
+  var evt = new window.Event('resize');
 
   window.dispatchEvent(evt);
   assert.equal(didResizeCallCount, 1, 'didResize called 1 time on event firing');
@@ -44,7 +44,7 @@ test('it fires "debouncedDidResize"  when the window is resized', function (asse
     debouncedDidResizeCallCount++;
   });
 
-  let evt = new Event('resize');
+  let evt = new window.Event('resize');
   let evtCount = 0;
   let barrage = setInterval(() => {
     if (evtCount < 6) {
