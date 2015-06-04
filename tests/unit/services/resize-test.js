@@ -57,6 +57,6 @@ test('it fires "debouncedDidResize"  when the window is resized', function(asser
   setTimeout(() => {
     assert.equal(debouncedDidResizeCallCount, 1, 'debouncedDidResize called 1 time after 500ms');
     QUnit.start();
-  }, 200);
+  }, 500);
 
 });
