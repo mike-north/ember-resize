@@ -5,7 +5,7 @@ moduleFor('service:resize', 'Unit | Service | resize', {
   // needs: ['service:foo']
 });
 
-test('it fires "didResize"  when the window is resized', function (assert) {
+test('it fires "didResize"  when the window is resized', function(assert) {
 
   let service = this.subject({
     widthSensitive: false,
@@ -16,7 +16,7 @@ test('it fires "didResize"  when the window is resized', function (assert) {
     didResizeCallCount++;
   });
 
-  var evt = new window.Event('resize');
+  let evt = new window.Event('resize');
 
   window.dispatchEvent(evt);
   assert.equal(didResizeCallCount, 1, 'didResize called 1 time on event firing');
@@ -30,8 +30,7 @@ test('it fires "didResize"  when the window is resized', function (assert) {
 
 });
 
-
-test('it fires "debouncedDidResize"  when the window is resized', function (assert) {
+test('it fires "debouncedDidResize"  when the window is resized', function(assert) {
 
   QUnit.stop();
 
@@ -46,11 +45,10 @@ test('it fires "debouncedDidResize"  when the window is resized', function (asse
 
   let evt = new window.Event('resize');
   let evtCount = 0;
-  let barrage = setInterval(() => {
+  let barrage = window.setInterval(() => {
     if (evtCount < 6) {
       window.dispatchEvent(evt);
-    }
-    else {
+    } else {
       window.clearInterval(barrage);
     }
   }, 5);
