@@ -1,5 +1,10 @@
 # Ember-resize
-[![Build Status](https://travis-ci.org/truenorth/ember-resize.svg?branch=master)](https://travis-ci.org/truenorth/ember-resize) [![Code Climate](https://codeclimate.com/github/truenorth/ember-resize/badges/gpa.svg)](https://codeclimate.com/github/truenorth/ember-resize) [![npm version](https://badge.fury.io/js/ember-resize.svg)](http://badge.fury.io/js/ember-resize) [![Ember Observer Score](http://emberobserver.com/badges/ember-resize.svg)](http://emberobserver.com/addons/ember-resize)
+[![Build Status](https://travis-ci.org/truenorth/ember-resize.svg?branch=master)](https://travis-ci.org/truenorth/ember-resize)
+[![Code Climate](https://codeclimate.com/github/truenorth/ember-resize/badges/gpa.svg)](https://codeclimate.com/github/truenorth/ember-resize)
+[![npm version](https://badge.fury.io/js/ember-resize.svg)](http://badge.fury.io/js/ember-resize)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-resize.svg)](http://emberobserver.com/addons/ember-resize)
+[![Dependency Status](https://david-dm.org/truenorth/ember-resize.svg)](https://david-dm.org/truenorth/ember-resize)
+[![devDependency Status](https://david-dm.org/truenorth/ember-resize/dev-status.svg)](https://david-dm.org/truenorth/ember-resize#info=devDependencies)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/ember_md.svg?auth=4224566d3e5343c119fbee3ab24f34c7)](https://saucelabs.com/u/ember_md)
 
