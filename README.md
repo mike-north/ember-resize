@@ -1,6 +1,8 @@
 # Ember-resize
 [![Build Status](https://travis-ci.org/truenorth/ember-resize.svg?branch=master)](https://travis-ci.org/truenorth/ember-resize) [![Code Climate](https://codeclimate.com/github/truenorth/ember-resize/badges/gpa.svg)](https://codeclimate.com/github/truenorth/ember-resize) [![npm version](https://badge.fury.io/js/ember-resize.svg)](http://badge.fury.io/js/ember-resize) [![Ember Observer Score](http://emberobserver.com/badges/ember-resize.svg)](http://emberobserver.com/addons/ember-resize)
 
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/ember_md.svg?auth=4224566d3e5343c119fbee3ab24f34c7)](https://saucelabs.com/u/ember_md)
+
 Respond to window and view resize events easily and reliably. Events are only fired when dimensions actually change, and you may choose to respond to only width changes, only height changes, or changes to both.
 
 ### Use
