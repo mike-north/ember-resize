@@ -6,7 +6,11 @@
     "PhantomJS",
     "SL_chrome",
     "SL_firefox",
-    "SL_safari"
+    "SL_safari",
+    "SL_internet_explorer_10_Windows_7",
+    "SL_internet_explorer_11_Windows_8.1",
+    "SL_iPhone_82",
+    "SL_android_51"
   ],
   "launch_in_dev": [
     "PhantomJS",
@@ -14,7 +18,7 @@
     "Firefox",
     "Safari"
   ],
-  "parallel": 4,
+  "parallel": 2,
   "launchers": {
     "SL_chrome": {
       "exe": "./node_modules/.bin/ember-cli-sauce",
