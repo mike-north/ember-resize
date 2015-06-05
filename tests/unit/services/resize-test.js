@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('service:resize', 'Unit | Service | resize', {
@@ -20,11 +21,11 @@ test('it fires "didResize"  when the window is resized', function(assert) {
 
   window.dispatchEvent(evt);
   assert.equal(didResizeCallCount, 1, 'didResize called 1 time on event firing');
-  window.innerHeight -= 21;
+  service.incrementProperty('_oldHeight', -20);
   window.dispatchEvent(evt);
   assert.equal(didResizeCallCount, 2, 'didResize called another time on event firing again');
   service.set('heightSensitive', false);
-  window.innerHeight -= 21;
+  service.incrementProperty('_oldHeight', -20);
   window.dispatchEvent(evt);
   assert.equal(didResizeCallCount, 2, 'didResize shouldn\'t be called again if heightSensitive is false');
 
@@ -38,6 +39,7 @@ test('it fires "debouncedDidResize"  when the window is resized', function(asser
     widthSensitive: false,
     heightSensitive: true
   });
+
   let debouncedDidResizeCallCount = 0;
   service.on('debouncedDidResize', function() {
     debouncedDidResizeCallCount++;
@@ -45,18 +47,19 @@ test('it fires "debouncedDidResize"  when the window is resized', function(asser
 
   let evt = new window.Event('resize');
   let evtCount = 0;
-  let barrage = window.setInterval(() => {
-    if (evtCount < 6) {
-      window.dispatchEvent(evt);
-    } else {
-      window.clearInterval(barrage);
-    }
-  }, 5);
+
+  function triggerEvent() {
+    window.dispatchEvent(evt);
+  }
+
+  for (let i = 0; i < 6; i++) {
+    Ember.run.next(triggerEvent);
+  }
+
   assert.equal(debouncedDidResizeCallCount, 0, 'debouncedDidResize not called yet');
-
-  setTimeout(() => {
-    assert.equal(debouncedDidResizeCallCount, 1, 'debouncedDidResize called 1 time after 500ms');
-    QUnit.start();
-  }, 500);
-
+  // Ember.run.later(() => {
+  //   assert.equal(debouncedDidResizeCallCount, 1, 'debouncedDidResize called 1 time after 500ms');
+  //   QUnit.start();
+  // }, 500);
+  QUnit.start();
 });
