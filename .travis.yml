@@ -37,3 +37,11 @@ script:
 - ember try $EMBER_TRY_SCENARIO test
 after_script:
 - ember sauce:disconnect
+deploy:
+  provider: npm
+  email: michael.l.north@gmail.com
+  api_key:
+    secure: hcFfd5SfBqVbyS1NP2MM6u+B6fK6uVD1zzUrmOPqFczEJ02NNXI3W+x7XHeX3OFYiN27iIpdzMtF1/VUV4+GUc4YotABYzcPi4+DED9Ns6O6dEYQ0SX1CcPyrB0jlsEl8QOJJErQP0LJ7XN24xbtEoXqgxbiknId1Mg2OS9++vlMK+ny6SoBwJrWUTWEvHW3a6Gl/aaNFUSJTTGIyG/iChnB18s949AV4qMfslrdBmos9Gnn5Po90Vq0bj38P8Z0zEHh4o2Z6cwliX2qOAa4jzHzoXAb3CNXzX1EiVbqEn9Ph9MjR8p7l2zm3T/K9Rc3fUnz8nHeIOlT15w/1BOzCrY85QC/R1pdx+cdA6GOVR2yX+MeeawzTbjXtaP6gsdvNSvv7t6VhqbmoQJWMPccO473bfuwPM+qvW4X22/Z7cxdYbfbAhwtukbcXUoY8W9hPzqwTJueqNyfDjpaEfcNh8wuv+UnhmlDXiqVdonkFdh0b2Ac+RuLsicYvoLdGQMIgenTb88kdGy30EKJTO1kA3WzKQKm24uqADH7ZnHd2HvCeasWE18JXWOFNViNzMbnfS732ApALY0of7giZ0P3J1LY9OxoXxJA77hfsKfyU1u2vPxTKPakYamlca5g93p0H2kBJJedZru6az+O8BZhK2v0EyKwsEbUdXtC+fIIeFM=
+  on:
+    tags: true
+    repo: truenorth/ember-resize
