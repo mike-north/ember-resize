@@ -52,11 +52,11 @@ export default Ember.Service.extend(Ember.Evented, {
   },
 
   _installResizeListener() {
-    window.addEventListener('resize', this._onResizeHandler);
+    Ember.$(window).on('resize', this._onResizeHandler);
   },
 
   _uninstallResizeListener() {
-    window.removeEventListener('resize', this._onResizeHandler);
+    Ember.$(window).off('resize', this._onResizeHandler);
   },
 
   _fireResizeNotification(evt) {
