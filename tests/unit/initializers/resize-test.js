@@ -21,7 +21,7 @@ test('service is registered to the container', function(assert) {
   assert.ok(application.__container__.lookup('service:resize'), 'registered as service:resize in the container after initializer');
 });
 
-test('service configuration is registered to the container', function(assert) {
+test('configuration is also registered', function(assert) {
   assert.ok(!application.__container__.lookup('config:resize-service'), 'not registered as config:resize-service in the container before initializer');
   initialize(container, application);
   assert.ok(application.__container__.lookup('config:resize-service'), 'registered as config:resize-service in the container after initializer');
