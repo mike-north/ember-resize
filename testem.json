@@ -3,7 +3,10 @@
   "host": "lvh.me",
   "test_page": "tests/index.html?hidepassed&coverage",
   "launch_in_ci": [
-    "PhantomJS"
+    "PhantomJS",
+    "SL_chrome",
+    "SL_firefox",
+    "SL_safari"
   ],
   "launch_in_dev": [
     "PhantomJS",
