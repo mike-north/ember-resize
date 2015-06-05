@@ -1,0 +1,1 @@
+export { default } from 'ember-resize/acceptance-tests/injection-factories';

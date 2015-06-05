@@ -6,6 +6,7 @@ let Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('injection-factories');
 });
 
 export default Router;
