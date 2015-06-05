@@ -3,15 +3,7 @@
   "host": "lvh.me",
   "test_page": "tests/index.html?hidepassed&coverage",
   "launch_in_ci": [
-    "PhantomJS",
-    "SL_internet_explorer_9_Windows_7",
-    "SL_internet_explorer_10_Windows_7",
-    "SL_internet_explorer_11_Windows_8.1",
-    "SL_firefox",
-    "SL_chrome",
-    "SL_safari",
-    "SL_iPhone_82",
-    "SL_android_51"
+    "PhantomJS"
   ],
   "launch_in_dev": [
     "PhantomJS",
