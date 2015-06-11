@@ -1,4 +1,5 @@
 # Ember-resize
+
 [![Build Status](https://travis-ci.org/truenorth/ember-resize.svg?branch=master)](https://travis-ci.org/truenorth/ember-resize)
 [![Code Climate](https://codeclimate.com/github/truenorth/ember-resize/badges/gpa.svg)](https://codeclimate.com/github/truenorth/ember-resize)
 [![npm version](https://badge.fury.io/js/ember-resize.svg)](http://badge.fury.io/js/ember-resize)
