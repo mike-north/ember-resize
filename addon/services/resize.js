@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const { classify } = Ember.String;
 
-export default Ember.Service.extend(Ember.Evented, {
+export default Ember.Object.extend(Ember.Evented, {
 
   _oldWidth: null,
   _oldHeight: null,
