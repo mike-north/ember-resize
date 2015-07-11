@@ -33,12 +33,12 @@ install:
 - npm install -g bower
 - npm install
 - bower install
-before_script:
-- ember sauce:connect
+# before_script:
+# - ember sauce:connect
 script:
 - ember try $EMBER_TRY_SCENARIO test
-after_script:
-- ember sauce:disconnect
+# after_script:
+# - ember sauce:disconnect
 deploy:
   provider: npm
   email: michael.l.north@gmail.com
