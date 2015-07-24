@@ -1,11 +1,10 @@
 import Ember from 'ember';
 
+const Base = Ember.Service || Ember.Object;
+const keys = Object.keys || Ember.keys;
 const { classify } = Ember.String;
 
-const keys = Object.keys || Ember.keys;
-
-export default Ember.Object.extend(Ember.Evented, {
-
+export default Base.extend(Ember.Evented, {
   _oldWidth: null,
   _oldHeight: null,
   _oldWidthDebounced: null,
