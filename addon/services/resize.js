@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 const { classify } = Ember.String;
 
+const keys = Object.keys || Ember.keys;
+
 export default Ember.Object.extend(Ember.Evented, {
 
   _oldWidth: null,
@@ -30,7 +32,8 @@ export default Ember.Object.extend(Ember.Evented, {
 
   _setDefaults() {
     const defaults = Ember.getWithDefault(this, 'resizeServiceDefaults', {});
-    Ember.keys(defaults).map(key => {
+
+    keys(defaults).map(key => {
       const classifiedKey = classify(key);
       const defaultKey = `default${classifiedKey}`;
       return Ember.set(this, defaultKey, defaults[key]);
