@@ -92,11 +92,3 @@ module.exports = function(environment) {
 * `ember build`
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
-
-## Changelog
-
-### v0.0.5
-
-* Don't rely on `Ember.Service`, in order to support earlier versions of Ember
-* Removed an erroneous module
-* Update devDependencies
