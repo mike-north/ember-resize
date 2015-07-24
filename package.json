@@ -1,6 +1,6 @@
 {
   "name": "ember-resize",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Idiomatically handle window and view resizes in Ember.js",
   "directories": {
     "doc": "doc",
@@ -37,6 +37,7 @@
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
+    "ember-legacy-views": "0.2.0",
     "ember-new-computed": "1.0.0",
     "ember-suave": "~0.1.9",
     "ember-try": "~0.0.7"
