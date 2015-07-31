@@ -1,6 +1,6 @@
 {
   "name": "ember-resize",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Idiomatically handle window and view resizes in Ember.js",
   "directories": {
     "doc": "doc",
@@ -11,13 +11,10 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/truenorth/ember-resize"
-  },
   "engines": {
     "node": ">= 0.10.0"
   },
+  "repository": "https://github.com/truenorth/ember-resize.git",
   "homepage": "https://github.com/truenorth/ember-resize",
   "author": "Mike North <michael.l.north@gmail.com> (http://mike.works)",
   "license": "MIT",
