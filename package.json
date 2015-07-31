@@ -14,8 +14,8 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "repository": "https://github.com/truenorth/ember-resize.git",
-  "homepage": "https://github.com/truenorth/ember-resize",
+  "repository": "https://github.com/mike-north/ember-resize.git",
+  "homepage": "https://github.com/mike-north/ember-resize",
   "author": "Mike North <michael.l.north@gmail.com> (http://mike.works)",
   "license": "MIT",
   "devDependencies": {
