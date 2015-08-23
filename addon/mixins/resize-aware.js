@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Mixin.create({
+const { Mixin } = Ember;
+const { floor } = Math;
+
+export default Mixin.create({
   resizeEventsEnabled: true,
   resizeDebouncedEventsEnabled: true,
 
@@ -39,8 +42,8 @@ export default Ember.Mixin.create({
   },
 
   _handleResizeEvent(evt) {
-    const w = Math.floor(this._getComponentSize().width);
-    const h = Math.floor(this._getComponentSize().height);
+    const w = floor(this._getComponentSize().width);
+    const h = floor(this._getComponentSize().height);
     if ((this.get('resizeWidthSensitive') && (this.get('_oldViewWidth') !== w)) ||
       (this.get('resizeHeightSensitive') && (this.get('_oldViewHeight') !== h))) {
       this.didResize(w, h, evt);
@@ -52,8 +55,8 @@ export default Ember.Mixin.create({
   },
 
   _handleDebouncedResizeEvent(evt) {
-    const w = Math.floor(this._getComponentSize().width);
-    const h = Math.floor(this._getComponentSize().height);
+    const w = floor(this._getComponentSize().width);
+    const h = floor(this._getComponentSize().height);
     if ((this.get('resizeWidthSensitive') && (this.get('_oldViewWidthDebounced') !== w)) ||
       (this.get('resizeHeightSensitive') && (this.get('_oldViewHeightDebounced') !== h))) {
       this.debouncedDidResize(w, h, evt);

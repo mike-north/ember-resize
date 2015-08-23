@@ -2,24 +2,25 @@ import Ember from 'ember';
 
 const Base = Ember.Service || Ember.Object;
 const keys = Object.keys || Ember.keys;
-const { classify } = Ember.String;
 
-export default Base.extend(Ember.Evented, {
+const { Evented, String: { classify }, computed: { oneWay }, run: { debounce } } = Ember;
+
+export default Base.extend(Evented, {
   _oldWidth: null,
   _oldHeight: null,
   _oldWidthDebounced: null,
   _oldHeightDebounced: null,
 
-  debounceTimeout: Ember.computed.oneWay('defaultDebounceTimeout'),
-  widthSensitive: Ember.computed.oneWay('defaultWidthSensitive'),
-  heightSensitive: Ember.computed.oneWay('defaultHeightSensitive'),
+  debounceTimeout: oneWay('defaultDebounceTimeout'),
+  widthSensitive: oneWay('defaultWidthSensitive'),
+  heightSensitive: oneWay('defaultHeightSensitive'),
 
   init() {
     this._super(...arguments);
     this._setDefaults();
     this._onResizeHandler = evt => {
       this._fireResizeNotification(evt);
-      Ember.run.debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
+      debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
     };
     this._installResizeListener();
   },
