@@ -7,19 +7,20 @@ cache:
   - node_modules
 env:
   matrix:
-  - EMBER_TRY_SCENARIO=default
   - EMBER_TRY_SCENARIO=ember-1.10
   - EMBER_TRY_SCENARIO=ember-1.11
+  - EMBER_TRY_SCENARIO=ember-1.12
+  - EMBER_TRY_SCENARIO=ember-1.13
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
+  - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
   global:
     secure: mlHPZlkzVu5JpCzFNz+o/+DGyI6K2VLh5fY2zoAjuClRazPJ/04tKo8Fxol5U32jpeI6LXJlsyu+lO914q2L0M6+i7iTU1XFeL9PbSdK8IK1AdHWFiJAlli+7eDpkan3FnSg9Y3yjmYrKcaVimVMDmk0GlSiUBOlyic/gEj5uPguC1ACwzFVkwgOrxzUITLg6qtwgYGyJUY8QJb3baoFtZZrpSFqHvzPl2Wr7AIXAcVldl7S5fQUEsQ8gKEa8ZCbCMWvebNXDf8v7C/OwjJnh9awZDcNE5pPavV3mvftDY9QQEulxhhoXowJR/X+1lMcMzgkNtEcDceoRSTHG4z98ASQjsx6aywsZiGaqZlfCvpgkmruXTjCaVPR5lGd1imP+arrxlN6Kn6m+kKdf9KnmV7UIt+Q4lbDsWkNQXNuLC8Ag6okJSPXI3CghxRC8L/NR7iiapjs4SrImTUu9+eJMal93FTWqjQdTkZYWYD5ncKvOzFOX7w+PkmVAH/R8nnuQ+MZwhqi3TO7ieWGcC59mS7BeNokElXSpGUiR+4YahZMNYM27XV8RHXpik8DBvrlHQGtCpNtmZwmNSKR66Y/QgKdL1FJ7XEc+LqeRqkXXe9mEbcfMY7YzWDK1dc4+lFwRq24yxVX0/d40fe4T5CZ5K6RkHODpyHY15CYorEXT0c=
 
 matrix:
   fast_finish: true
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
 - mkdir travis-phantomjs

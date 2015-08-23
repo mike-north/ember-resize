@@ -33,7 +33,7 @@ test('it fires "didResize"  when the window is resized', function(assert) {
 
 test('it fires "debouncedDidResize"  when the window is resized', function(assert) {
 
-  QUnit.stop();
+  window.QUnit.stop();
 
   let service = this.subject({
     widthSensitive: false,
@@ -46,20 +46,19 @@ test('it fires "debouncedDidResize"  when the window is resized', function(asser
   });
 
   let evt = new window.Event('resize');
-  let evtCount = 0;
 
   function triggerEvent() {
     window.dispatchEvent(evt);
   }
 
   for (let i = 0; i < 6; i++) {
-    Ember.run.next(triggerEvent);
+    Ember.run.later(triggerEvent, 10);
   }
 
   assert.equal(debouncedDidResizeCallCount, 0, 'debouncedDidResize not called yet');
-  // Ember.run.later(() => {
-  //   assert.equal(debouncedDidResizeCallCount, 1, 'debouncedDidResize called 1 time after 500ms');
-  //   QUnit.start();
-  // }, 500);
-  QUnit.start();
+  Ember.run.later(() => {
+    assert.equal(debouncedDidResizeCallCount, 1, 'debouncedDidResize called 1 time after 500ms');
+    window.QUnit.start();
+  }, 500);
+
 });
