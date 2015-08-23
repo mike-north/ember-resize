@@ -1,7 +1,9 @@
 import ResizeService from 'ember-resize/services/resize';
 import config from '../config/environment';
 
-export function initialize(_container, application) {
+export function initialize() {
+  let application = arguments[1] || arguments[0];
+
   const { resizeServiceDefaults } = config;
   const { injectionFactories } = resizeServiceDefaults;
 
