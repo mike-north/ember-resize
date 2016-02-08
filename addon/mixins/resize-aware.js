@@ -1,9 +1,10 @@
 import Ember from 'ember';
 
-const { Mixin } = Ember;
+const { Mixin, inject } = Ember;
 const { floor } = Math;
 
 export default Mixin.create({
+  resizeService: Ember.inject.service('resize-service'),
   resizeEventsEnabled: true,
   resizeDebouncedEventsEnabled: true,
 
