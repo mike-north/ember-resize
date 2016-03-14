@@ -1,6 +1,6 @@
 /*jshint node:true*/
-function scenario(emberVersion) {
-  return {
+function scenario(emberVersion, addLegacyViews) {
+  var s = {
     name: 'ember-' + emberVersion,
     bower: {
       dependencies: {
@@ -11,6 +11,12 @@ function scenario(emberVersion) {
       }
     }
   };
+  s.npm = {
+    dependencies: {
+      'ember-legacy-views': '^0.2.0'
+    }
+  };
+  return s;
 }
 
 module.exports = {
