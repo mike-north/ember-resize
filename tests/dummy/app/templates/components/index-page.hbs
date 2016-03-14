@@ -1,0 +1,7 @@
+<h4>Resize-Aware View</h4>
+<p><code>min-width: 500px</code></p>
+<ul class="resize-events">
+{{#each resizeEvents as |evt|}}
+  <li class={{if evt.debounced 'debounced deep-purple white-text' ''}}>{{evt.width}}, {{evt.height}}</li>
+{{/each}}
+</ul>

@@ -15,15 +15,11 @@ module('Acceptance | injection factories', {
 });
 
 function getViewById(viewId) {
-  let view = Ember.View.views ? Ember.View.views[viewId] : null;
-  if (!view) {
-    let newView = Ember.View.create();
-    view = newView._viewRegistry[viewId];
-  }
+  let view = application.componentById(viewId);
   return view;
 }
 
-test('Testing whether service has been injected onto views and components', assert => {
+test('Testing whether service has been injected onto views and components', (assert) => {
   visit('/injection-factories');
 
   andThen(() => {
