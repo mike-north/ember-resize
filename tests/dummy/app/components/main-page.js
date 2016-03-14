@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.View.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   resizeEvents: Ember.A([]),
   didInsertElement() {
     this._super(...arguments);
