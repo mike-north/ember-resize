@@ -18,7 +18,7 @@ export default Base.extend(Evented, {
   init() {
     this._super(...arguments);
     this._setDefaults();
-    this._onResizeHandler = evt => {
+    this._onResizeHandler = (evt) => {
       this._fireResizeNotification(evt);
       debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
     };
@@ -33,7 +33,7 @@ export default Base.extend(Evented, {
   _setDefaults() {
     const defaults = Ember.getWithDefault(this, 'resizeServiceDefaults', {});
 
-    keys(defaults).map(key => {
+    keys(defaults).map((key) => {
       const classifiedKey = classify(key);
       const defaultKey = `default${classifiedKey}`;
       return Ember.set(this, defaultKey, defaults[key]);
