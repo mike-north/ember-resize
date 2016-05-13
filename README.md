@@ -19,7 +19,7 @@ Respond to window and view resize events easily and reliably. Events are only fi
 
 ### Service: `Resize`
 
-The resize service makes it easy to respond to window resize events. By default it is injected onto your views and components, but you may change this via configuration. 
+The resize service makes it easy to respond to window resize events. By default it is injected onto your views and components, but you may change this via configuration.
 
 This service fires two events
 * `didResize` - Fires anytime the window is resized
@@ -45,6 +45,9 @@ A little sugar on top of the service, making it as easy as possible to respond t
 import ResizeAware from 'ember-resize/mixins/resize-aware';
 
 let MyOtherView = Ember.View.extend(ResizeAware, {
+  resizeWidthSensitive: true,
+  resizeHeightSensitive: true,
+
   didResize(width, height, evt) {
     console.log(`Resized! ${width}x${height}`);
   },
@@ -54,16 +57,20 @@ let MyOtherView = Ember.View.extend(ResizeAware, {
 })
 ```
 
+You can configure component/view response to height, width changes via the `resizeWidthSensitive` and `resizeHeightSensitive` properties.
+
+*Note that the global environment configuration will override these if you set `heightSensitive` or `widthSensitive` to `false`.*
+
 ### Configuration
 
-in your `config/environment.js`, you may configure some options
+In your `config/environment.js`, you may configure some options. The defaults are:
 
 ```js
 module.exports = function(environment) {
   var ENV = {
     resizeServiceDefaults: {
       debounceTimeout    : 200,
-      heightSensitive    : false,
+      heightSensitive    : true,
       widthSensitive     : true,
       injectionFactories : [ 'view', 'component']
     }
