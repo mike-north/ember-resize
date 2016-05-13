@@ -4,7 +4,7 @@ module.exports = function(/* environment, appConfig */) {
   return {
     resizeServiceDefaults: {
       widthSensitive: true,
-      heightSensitive: false,
+      heightSensitive: true,
       debounceTimeout: 200,
       injectionFactories: ['view', 'component']
     }
