@@ -12,7 +12,7 @@ export default Mixin.create({
   _oldViewWidthDebounced: null,
   _oldViewHeightDebounced: null,
   resizeWidthSensitive: true,
-  resizeHeightSensitive: false,
+  resizeHeightSensitive: true,
 
   didInsertElement() {
     this._super(...arguments);
