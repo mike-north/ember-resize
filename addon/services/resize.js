@@ -1,9 +1,11 @@
 import Ember from 'ember';
 
+// jscs:disable disallowDirectPropertyAccess
 const Base = Ember.Service || Ember.Object;
 const keys = Object.keys || Ember.keys;
+// jscs:enable disallowDirectPropertyAccess
 
-const { Evented, String: { classify }, computed: { oneWay }, run: { debounce } } = Ember;
+const { Evented, String: { classify }, computed: { oneWay }, run: { debounce }, getWithDefault, set } = Ember;
 
 export default Base.extend(Evented, {
   _oldWidth: null,
@@ -31,12 +33,12 @@ export default Base.extend(Evented, {
   },
 
   _setDefaults() {
-    const defaults = Ember.getWithDefault(this, 'resizeServiceDefaults', {});
+    const defaults = getWithDefault(this, 'resizeServiceDefaults', {});
 
     keys(defaults).map((key) => {
       const classifiedKey = classify(key);
       const defaultKey = `default${classifiedKey}`;
-      return Ember.set(this, defaultKey, defaults[key]);
+      return set(this, defaultKey, defaults[key]);
     });
   },
 

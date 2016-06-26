@@ -5,7 +5,12 @@ const { Component } = Ember;
 
 export default Component.extend(ResizeAware, {
   classNames: ['index-view'],
-  resizeEvents: Ember.A([]),
+  resizeEvents: null,
+
+  init() {
+    this._super(...arguments);
+    this.set('resizeEvents', []);
+  },
 
   didResize(width, height) {
     this.get('resizeEvents').addObject({ width, height, debounced: false });
