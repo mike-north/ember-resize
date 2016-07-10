@@ -2,13 +2,15 @@ import Ember from 'ember';
 import { initialize } from '../../../initializers/resize';
 import { module, test } from 'qunit';
 
+const { run, Application } = Ember;
+
 let container, application;
 
 module('Unit | Initializer | resize', {
   needs: ['service:resize'],
   beforeEach() {
-    Ember.run(function() {
-      application = Ember.Application.create();
+    run(function() {
+      application = Application.create();
       container = application.__container__;
       application.deferReadiness();
     });

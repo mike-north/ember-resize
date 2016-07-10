@@ -2,11 +2,15 @@ import Ember from 'ember';
 import ResizeAwareMixin from '../../../mixins/resize-aware';
 import { module, test } from 'qunit';
 
+// jscs:disable disallowDirectPropertyAccess
+const EObj = Ember.Object;
+// jscs:enable disallowDirectPropertyAccess
+
 module('Unit | Mixin | resize aware');
 
 test('didResize and debouncedDidResize hooks are on the object', function(assert) {
 
-  let ResizeAwareObject = Ember.Object.extend(ResizeAwareMixin);
+  let ResizeAwareObject = EObj.extend(ResizeAwareMixin);
   let subject = ResizeAwareObject.create();
 
   assert.ok(subject.didResize, 'didResize hook is present on the subject');

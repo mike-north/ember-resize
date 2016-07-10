@@ -1,9 +1,14 @@
 import Ember from 'ember';
 
-const { Component } = Ember;
+const { Component, A } = Ember;
 
 export default Component.extend({
-  resizeEvents: Ember.A([]),
+
+  init() {
+    this._super(...arguments);
+    this.set('resizeEvents', A([]));
+  },
+
   didInsertElement() {
     this._super(...arguments);
     this.get('resizeService').on('debouncedDidResize', () => {
