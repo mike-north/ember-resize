@@ -2,6 +2,8 @@ import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
 
+const { run } = Ember;
+
 let application;
 
 module('Acceptance | injection factories', {
@@ -10,7 +12,7 @@ module('Acceptance | injection factories', {
   },
 
   afterEach() {
-    Ember.run(application, 'destroy');
+    run(application, 'destroy');
   }
 });
 
