@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
-const { Component } = Ember;
+const { Component, A } = Ember;
 
 export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.set('resizeEvents', []);
+    this.set('resizeEvents', A([]));
   },
 
   didInsertElement() {
