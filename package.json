@@ -21,11 +21,10 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "ember-ajax": "2.4.1",
-    "ember-cli": "2.6.2",
+    "ember-cli": "2.7.0",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-fastboot": "1.0.0-beta.7",
-    "ember-cli-github-pages": "0.1.0",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-inject-live-reload": "^1.4.0",
     "ember-cli-jshint": "^1.0.0",
