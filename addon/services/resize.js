@@ -24,12 +24,16 @@ export default Base.extend(Evented, {
       this._fireResizeNotification(evt);
       debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
     };
-    this._installResizeListener();
+    if (typeof FastBoot === 'undefined') {
+      this._installResizeListener();
+    }
   },
 
   destroy() {
     this._super(...arguments);
-    this._uninstallResizeListener();
+    if (typeof FastBoot === 'undefined') {
+      this._uninstallResizeListener();
+    }
   },
 
   _setDefaults() {
