@@ -12,7 +12,7 @@
     "test": "ember try:testall"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "repository": "https://github.com/mike-north/ember-resize.git",
   "homepage": "https://github.com/mike-north/ember-resize",
