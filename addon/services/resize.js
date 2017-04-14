@@ -1,11 +1,11 @@
 import Ember from 'ember';
+import configuration from 'ember-resize/configuration';
 
 // jscs:disable disallowDirectPropertyAccess
 const Base = Ember.Service || Ember.Object;
-const keys = Object.keys || Ember.keys;
 // jscs:enable disallowDirectPropertyAccess
 
-const { Evented, String: { classify }, computed: { oneWay }, run: { debounce }, getWithDefault, set } = Ember;
+const { Evented, run: { debounce }, get } = Ember;
 
 export default Base.extend(Evented, {
   _oldWidth: null,
@@ -13,13 +13,12 @@ export default Base.extend(Evented, {
   _oldWidthDebounced: null,
   _oldHeightDebounced: null,
 
-  debounceTimeout: oneWay('defaultDebounceTimeout'),
-  widthSensitive: oneWay('defaultWidthSensitive'),
-  heightSensitive: oneWay('defaultHeightSensitive'),
+  debounceTimeout: get(configuration, 'debounceTimeout'),
+  widthSensitive: get(configuration, 'widthSensitive'),
+  heightSensitive: get(configuration, 'heightSensitive'),
 
   init() {
     this._super(...arguments);
-    this._setDefaults();
     this._onResizeHandler = (evt) => {
       this._fireResizeNotification(evt);
       debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
@@ -30,16 +29,6 @@ export default Base.extend(Evented, {
   destroy() {
     this._super(...arguments);
     this._uninstallResizeListener();
-  },
-
-  _setDefaults() {
-    const defaults = getWithDefault(this, 'resizeServiceDefaults', {});
-
-    keys(defaults).map((key) => {
-      const classifiedKey = classify(key);
-      const defaultKey = `default${classifiedKey}`;
-      return set(this, defaultKey, defaults[key]);
-    });
   },
 
   _hasWindowSizeChanged(w, h, debounced=false) {
