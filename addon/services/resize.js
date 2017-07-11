@@ -23,8 +23,8 @@ export default Base.extend(Evented, {
     this._setDefaults();
     this._onResizeHandler = (evt) => {
       this._fireResizeNotification(evt);
-      let debounce = debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
-      this._scheduledDebounce = debounce;
+      let scheduledDebounce = debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
+      this._scheduledDebounce = scheduledDebounce;
     };
     this._installResizeListener();
   },
