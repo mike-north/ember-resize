@@ -7,6 +7,9 @@ export function initialize() {
   const { resizeServiceDefaults } = config;
   const { injectionFactories } = resizeServiceDefaults;
 
+  application.unregister('config:resize-service');
+  application.unregister('service:resize');
+
   application.register('config:resize-service', resizeServiceDefaults, { instantiate: false });
   application.register('service:resize', ResizeService);
   application.inject('service:resize', 'resizeServiceDefaults', 'config:resize-service');
