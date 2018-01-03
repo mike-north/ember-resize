@@ -1,5 +1,7 @@
 # Ember-resize
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mike-north/ember-resize.svg)](https://greenkeeper.io/)
+
 <img align="right" src="http://i59.tinypic.com/fadijn.png">
 
 [![Build Status](https://travis-ci.org/mike-north/ember-resize.svg?branch=master)](https://travis-ci.org/mike-north/ember-resize)
