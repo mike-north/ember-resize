@@ -1,9 +1,7 @@
-import Ember from 'ember';
+import EObj from '@ember/object';
 import ResizeAwareMixin from '../../../mixins/resize-aware';
 import { module, test } from 'qunit';
 
-// jscs:disable disallowDirectPropertyAccess
-const EObj = Ember.Object;
 // jscs:enable disallowDirectPropertyAccess
 
 module('Unit | Mixin | resize aware');
