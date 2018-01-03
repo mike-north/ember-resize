@@ -1,7 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { A } from '@ember/array';
 import ResizeAware from 'ember-resize/mixins/resize-aware';
-
-const { Component, A } = Ember;
 
 export default Component.extend(ResizeAware, {
   classNames: ['index-view'],

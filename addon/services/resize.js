@@ -1,11 +1,14 @@
-import Ember from 'ember';
+import { keys as emberKeys } from '@ember/polyfills';
+import Service from '@ember/service';
+import Evented from '@ember/object/evented';
+import { classify } from '@ember/string';
+import { oneWay } from '@ember/object/computed';
+import { debounce } from '@ember/runloop';
+import EmberObject, { set, getWithDefault } from '@ember/object';
 
 // jscs:disable disallowDirectPropertyAccess
-const Base = Ember.Service || Ember.Object;
-const keys = Object.keys || Ember.keys;
-// jscs:enable disallowDirectPropertyAccess
-
-const { Evented, String: { classify }, computed: { oneWay }, run: { debounce }, getWithDefault, set } = Ember;
+const Base = Service || EmberObject;
+const keys = Object.keys || emberKeys;
 
 export default Base.extend(Evented, {
   _oldWidth: null,

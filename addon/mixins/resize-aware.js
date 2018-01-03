@@ -1,6 +1,4 @@
-import Ember from 'ember';
-
-const { Mixin } = Ember;
+import Mixin from '@ember/object/mixin';
 const { floor } = Math;
 
 export default Mixin.create({
