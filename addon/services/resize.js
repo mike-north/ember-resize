@@ -1,4 +1,4 @@
-import { keys } from '@ember/polyfills';
+import { keys as emberKeys } from '@ember/polyfills';
 import Service from '@ember/service';
 import Evented from '@ember/object/evented';
 import { classify } from '@ember/string';
@@ -8,7 +8,7 @@ import EmberObject, { set, getWithDefault } from '@ember/object';
 
 // jscs:disable disallowDirectPropertyAccess
 const Base = Service || EmberObject;
-const keys = Object.keys || keys;
+const keys = Object.keys || emberKeys;
 
 export default Base.extend(Evented, {
   _oldWidth: null,

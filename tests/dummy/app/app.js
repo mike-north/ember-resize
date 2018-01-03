@@ -1,4 +1,5 @@
-import Application from '@ember/application';import Resolver from './resolver';
+import Application from '@ember/application';
+import Ember from 'ember';
 import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from './config/environment';
