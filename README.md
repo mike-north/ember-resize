@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ember-resize
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/mike-north/ember-resize.svg)](https://greenkeeper.io/)
@@ -79,27 +80,76 @@ module.exports = function(environment) {
   }
 }
 ```
+=======
+my-addon
+==============================================================================
 
-## Installation
+[Short description of the addon.]
+>>>>>>> 8964ab8... message
 
+Installation
+------------------------------------------------------------------------------
+
+<<<<<<< HEAD
 * `git clone` this repository
+=======
+```
+ember install my-addon
+```
+
+
+Usage
+------------------------------------------------------------------------------
+
+[Longer description of how to use the addon in apps.]
+
+
+Contributing
+------------------------------------------------------------------------------
+
+### Installation
+
+* `git clone <repository-url>`
+* `cd my-addon`
+>>>>>>> 8964ab8... message
 * `npm install`
 * `bower install`
 
-## Running
+### Linting
 
+<<<<<<< HEAD
 * `ember server`
 * Visit your app at http://localhost:4200.
+=======
+* `npm run lint:js`
+* `npm run lint:js -- --fix`
+>>>>>>> 8964ab8... message
 
-## Running Tests
+### Running tests
 
+<<<<<<< HEAD
 * `ember test`
 * `ember test --server`
+=======
+* `ember test` – Runs the test suite on the current Ember version
+* `ember test --server` – Runs the test suite in "watch mode"
+* `npm test` – Runs `ember try:each` to test your addon against multiple Ember versions
+>>>>>>> 8964ab8... message
 
-## Building
+### Running the dummy application
 
-* `ember build`
+* `ember serve`
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
+<<<<<<< HEAD
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
 
 ![Analytics](https://ga-beacon.appspot.com/UA-66610985-1/mike-north/ember-resize/readme)
+=======
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).
+>>>>>>> 8964ab8... message
