@@ -2,7 +2,7 @@ import { keys as emberKeys } from '@ember/polyfills';
 import Service from '@ember/service';
 import Evented from '@ember/object/evented';
 import { classify } from '@ember/string';
-import { oneWay } from '@ember/object/computed';
+import { oneWay, readOnly } from '@ember/object/computed';
 import { debounce } from '@ember/runloop';
 import EmberObject, { set, getWithDefault } from '@ember/object';
 
@@ -11,14 +11,17 @@ const Base = Service || EmberObject;
 const keys = Object.keys || emberKeys;
 
 export default Base.extend(Evented, {
-  _oldWidth: null,
-  _oldHeight: null,
-  _oldWidthDebounced: null,
-  _oldHeightDebounced: null,
+  _oldWidth: window.innerWidth,
+  _oldHeight: window.innerHeight,
+  _oldWidthDebounced: window.innerWidth,
+  _oldHeightDebounced: window.innerHeight,
 
   debounceTimeout: oneWay('defaultDebounceTimeout'),
   widthSensitive: oneWay('defaultWidthSensitive'),
   heightSensitive: oneWay('defaultHeightSensitive'),
+
+  screenWidth: readOnly('_oldWidth'),
+  screenHeight: readOnly('_oldHeight'),
 
   init() {
     this._super(...arguments);
