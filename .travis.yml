@@ -1,23 +1,31 @@
+---
 language: node_js
 node_js:
-- 0.12.2
+  - "4"
+
 sudo: false
+dist: trusty
+
+addons:
+  chrome: stable
+
 cache:
   directories:
-  - node_modules
+    - $HOME/.npm
+
 env:
+  global:
+    # See https://git.io/vdao3 for details.
+    - JOBS=1
   matrix:
-  - EMBER_TRY_SCENARIO=ember-1.10
-  - EMBER_TRY_SCENARIO=ember-1.11
-  - EMBER_TRY_SCENARIO=ember-1.12
-  - EMBER_TRY_SCENARIO=ember-1.13
-  - EMBER_TRY_SCENARIO=ember-2.0
-  - EMBER_TRY_SCENARIO=ember-2.1
-  - EMBER_TRY_SCENARIO=ember-2.2
-  - EMBER_TRY_SCENARIO=ember-2.3
-  - EMBER_TRY_SCENARIO=ember-release
-  - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
-  - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+    # we recommend new addons test the current and previous LTS
+    # as well as latest stable release (bonus points to beta/canary)
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-lts-2.16
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
+    - EMBER_TRY_SCENARIO=ember-default
   global:
     secure: mlHPZlkzVu5JpCzFNz+o/+DGyI6K2VLh5fY2zoAjuClRazPJ/04tKo8Fxol5U32jpeI6LXJlsyu+lO914q2L0M6+i7iTU1XFeL9PbSdK8IK1AdHWFiJAlli+7eDpkan3FnSg9Y3yjmYrKcaVimVMDmk0GlSiUBOlyic/gEj5uPguC1ACwzFVkwgOrxzUITLg6qtwgYGyJUY8QJb3baoFtZZrpSFqHvzPl2Wr7AIXAcVldl7S5fQUEsQ8gKEa8ZCbCMWvebNXDf8v7C/OwjJnh9awZDcNE5pPavV3mvftDY9QQEulxhhoXowJR/X+1lMcMzgkNtEcDceoRSTHG4z98ASQjsx6aywsZiGaqZlfCvpgkmruXTjCaVPR5lGd1imP+arrxlN6Kn6m+kKdf9KnmV7UIt+Q4lbDsWkNQXNuLC8Ag6okJSPXI3CghxRC8L/NR7iiapjs4SrImTUu9+eJMal93FTWqjQdTkZYWYD5ncKvOzFOX7w+PkmVAH/R8nnuQ+MZwhqi3TO7ieWGcC59mS7BeNokElXSpGUiR+4YahZMNYM27XV8RHXpik8DBvrlHQGtCpNtmZwmNSKR66Y/QgKdL1FJ7XEc+LqeRqkXXe9mEbcfMY7YzWDK1dc4+lFwRq24yxVX0/d40fe4T5CZ5K6RkHODpyHY15CYorEXT0c=
 
@@ -27,23 +35,19 @@ matrix:
     - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-- mkdir travis-phantomjs
-- wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-- tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
-- export PATH=$PWD/travis-phantomjs:$PATH
-- npm config set spin false
-- npm install -g npm@^2
-install:
-- npm install -g bower
-- npm install
-- bower install
-# before_script:
-# - ember sauce:connect
+  - npm config set spin false
+  - npm install -g npm@4
+  - npm --version
+
 script:
-- ember try $EMBER_TRY_SCENARIO test --skip-cleanup
+  - npm run lint:js
+  # Usually, it's ok to finish the test scenario without reverting
+  #  to the addon's original dependency state, skipping "cleanup".
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+
 # after_script:
 # - ember sauce:disconnect
+
 deploy:
   provider: npm
   email: michael.l.north@gmail.com

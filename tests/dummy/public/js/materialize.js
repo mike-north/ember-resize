@@ -5559,9 +5559,8 @@ DatePicker.prototype.nodes = function( isOpen ) {
                 settings.klass[ 'nav' + ( next ? 'Next' : 'Prev' ) ] + (
 
                     // If the focused month is outside the range, disabled the button.
-                    ( next && viewsetObject.year >= maxLimitObject.year && viewsetObject.month >= maxLimitObject.month ) ||
-                    ( !next && viewsetObject.year <= minLimitObject.year && viewsetObject.month <= minLimitObject.month ) ?
-                    ' ' + settings.klass.navDisabled : ''
+                    ((( next && viewsetObject.year >= maxLimitObject.year && viewsetObject.month >= maxLimitObject.month ) ||
+                    ( !next && viewsetObject.year <= minLimitObject.year && viewsetObject.month <= minLimitObject.month ) ? ' ' + settings.klass.navDisabled : ''))
                 ),
                 'data-nav=' + ( next || -1 ) + ' ' +
                 _.ariaAttr({
@@ -5569,7 +5568,7 @@ DatePicker.prototype.nodes = function( isOpen ) {
                     controls: calendar.$node[0].id + '_table'
                 }) + ' ' +
                 'title="' + (next ? settings.labelMonthNext : settings.labelMonthPrev ) + '"'
-            ) //endreturn
+            ); //endreturn
         }, //createMonthNav
 
 

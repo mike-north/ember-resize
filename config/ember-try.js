@@ -1,40 +1,21 @@
-/*jshint node:true*/
-function scenario(emberVersion, addLegacyViews) {
-  var s = {
-    name: 'ember-' + emberVersion,
-    bower: {
-      dependencies: {
-        'ember': '~' + emberVersion + '.0'
-      },
-      resolutions: {
-        'ember': '~' + emberVersion + '.0'
-      }
-    }
-  };
-  s.npm = {
-    dependencies: {
-      'ember-legacy-views': '^0.2.0'
-    }
-  };
-  return s;
-}
-
 module.exports = {
   scenarios: [
     {
-      name: 'default',
-      bower: {
-        dependencies: { }
+      name: 'ember-lts-2.12',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.12.0'
+        }
       }
     },
-    scenario('1.10'),
-    scenario('1.11'),
-    scenario('1.12'),
-    scenario('1.13'),
-    scenario('2.0'),
-    scenario('2.1'),
-    scenario('2.2'),
-    scenario('2.3'),
+    {
+      name: 'ember-lts-2.16',
+      npm: {
+        devDependencies: {
+          'ember-source': '~2.16.0'
+        }
+      }
+    },
     {
       name: 'ember-release',
       bower: {
@@ -43,6 +24,11 @@ module.exports = {
         },
         resolutions: {
           'ember': 'release'
+        }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
         }
       }
     },
@@ -55,6 +41,11 @@ module.exports = {
         resolutions: {
           'ember': 'beta'
         }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
+        }
       }
     },
     {
@@ -66,6 +57,17 @@ module.exports = {
         resolutions: {
           'ember': 'canary'
         }
+      },
+      npm: {
+        devDependencies: {
+          'ember-source': null
+        }
+      }
+    },
+    {
+      name: 'ember-default',
+      npm: {
+        devDependencies: {}
       }
     }
   ]
