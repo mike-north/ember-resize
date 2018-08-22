@@ -1,8 +1,6 @@
-import Ember from 'ember';
 import ResizeService from 'ember-resize/services/resize';
 import config from '../config/environment';
-
-const { getWithDefault } = Ember;
+import { getWithDefault } from '@ember/object';
 
 export function initialize() {
   let application = arguments[1] || arguments[0];
