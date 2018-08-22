@@ -8,7 +8,8 @@
     "start": "ember serve",
     "test": "ember test",
     "test:all": "ember try:each",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
@@ -41,7 +42,8 @@
     "eslint-plugin-node": "^6.0.1",
     "loader.js": "^4.2.3",
     "qunit-dom": "^0.6.2",
-    "semantic-release": "^15.9.9"
+    "semantic-release": "^15.9.9",
+    "travis-deploy-once": "^5.0.2"
   },
   "keywords": [
     "ember-addon",

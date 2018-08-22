@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - "8"
 
-sudo: false
+sudo: required
 dist: trusty
 
 addons:
@@ -11,6 +11,10 @@ addons:
 
 cache:
   yarn: true
+
+before_script:
+  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+  - sudo chown root /opt/google/chrome/chrome-sandbox
 
 env:
   global:
@@ -49,6 +53,12 @@ script:
 
 # after_script:
 # - ember sauce:disconnect
+
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
 
 deploy:
   provider: npm
