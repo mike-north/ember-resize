@@ -23,7 +23,7 @@ export default Base.extend(Evented, {
   init() {
     this._super(...arguments);
     this._setDefaults();
-    this._onResizeHandler = (evt) => {
+    this._onResizeHandler = evt => {
       this._fireResizeNotification(evt);
       debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
     };
@@ -42,19 +42,21 @@ export default Base.extend(Evented, {
   _setDefaults() {
     const defaults = getWithDefault(this, 'resizeServiceDefaults', {});
 
-    keys(defaults).map((key) => {
+    keys(defaults).map(key => {
       const classifiedKey = classify(key);
       const defaultKey = `default${classifiedKey}`;
       return set(this, defaultKey, defaults[key]);
     });
   },
 
-  _hasWindowSizeChanged(w, h, debounced=false) {
-    return (this.get('widthSensitive') && (w !== this.get(`_oldWidth${debounced ? 'Debounced' : ''}`))) ||
-          (this.get('heightSensitive') && (h !== this.get(`_oldHeight${debounced ? 'Debounced' : ''}`)));
+  _hasWindowSizeChanged(w, h, debounced = false) {
+    return (
+      (this.get('widthSensitive') && w !== this.get(`_oldWidth${debounced ? 'Debounced' : ''}`)) ||
+      (this.get('heightSensitive') && h !== this.get(`_oldHeight${debounced ? 'Debounced' : ''}`))
+    );
   },
 
-  _updateCachedWindowSize(w, h, debounced=false) {
+  _updateCachedWindowSize(w, h, debounced = false) {
     const wKey = `_oldWidth${debounced ? 'Debounced' : ''}`;
     const hKey = `_oldHeight${debounced ? 'Debounced' : ''}`;
     let props = {};
