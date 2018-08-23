@@ -16,8 +16,8 @@ export class ResizeInitializerTest extends EmberTest {
     this.testApplication = Application.extend();
 
     this.application = this.testApplication.create({ autoboot: false });
+    initialize(this.application);
     this.instance = (this.application as any).buildInstance();
-    initialize(this.instance);
   }
   public afterEach() {
     run(this.application, 'destroy');
