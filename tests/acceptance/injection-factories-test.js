@@ -1,32 +1,21 @@
-import { run } from '@ember/runloop';
 import { module, test } from 'qunit';
-import startApp from '../helpers/start-app';
-
-let application;
-
-module('Acceptance | injection factories', {
-  beforeEach() {
-    application = startApp();
-  },
-
-  afterEach() {
-    run(application, 'destroy');
-  }
-});
+import { setupApplicationTest } from 'ember-qunit';
+import { currentURL, visit, find } from '@ember/test-helpers';
 
 function getViewById(viewId) {
-  let view = application.componentById(viewId);
-  return view;
+  return this.owner.lookup('-view-registry:main')[viewId];
 }
 
-test('Testing whether service has been injected onto views and components', (assert) => {
-  visit('/injection-factories');
+module('Acceptance | injection factories', function(hooks) {
+  setupApplicationTest(hooks);
 
-  andThen(() => {
+  test('Testing whether service has been injected onto views and components', async function(assert) {
+    await visit('/injection-factories');
+
     assert.equal(currentURL(), '/injection-factories', 'Test page loads');
-    let viewId = find('.mike-view')[0].id;
-    assert.ok(getViewById(viewId).get('resizeService'), 'resizeService has been injected onto views');
-    let componentId = find('.test-component')[0].id;
-    assert.ok(getViewById(componentId).get('resizeService'), 'resizeService has been injected onto components');
+    let viewId = find('.mike-view').id;
+    assert.ok(getViewById.call(this, viewId).get('resizeService'), 'resizeService has been injected onto views');
+    let componentId = find('.test-component').id;
+    assert.ok(getViewById.call(this, componentId).get('resizeService'), 'resizeService has been injected onto components');
   });
 });

@@ -36,14 +36,16 @@ export default Mixin.create({
   debouncedDidResize(/*width, height, evt*/) {}, // Overridden in subclass
 
   _getComponentSize() {
-    return this.$()[0].getClientRects()[0];
+    return this.element.getClientRects()[0];
   },
 
   _handleResizeEvent(evt) {
     const w = floor(this._getComponentSize().width);
     const h = floor(this._getComponentSize().height);
-    if ((this.get('resizeWidthSensitive') && (this.get('_oldViewWidth') !== w)) ||
-      (this.get('resizeHeightSensitive') && (this.get('_oldViewHeight') !== h))) {
+    if (
+      (this.get('resizeWidthSensitive') && this.get('_oldViewWidth') !== w) ||
+      (this.get('resizeHeightSensitive') && this.get('_oldViewHeight') !== h)
+    ) {
       this.didResize(w, h, evt);
       this.setProperties({
         _oldViewWidth: w,
@@ -55,8 +57,10 @@ export default Mixin.create({
   _handleDebouncedResizeEvent(evt) {
     const w = floor(this._getComponentSize().width);
     const h = floor(this._getComponentSize().height);
-    if ((this.get('resizeWidthSensitive') && (this.get('_oldViewWidthDebounced') !== w)) ||
-      (this.get('resizeHeightSensitive') && (this.get('_oldViewHeightDebounced') !== h))) {
+    if (
+      (this.get('resizeWidthSensitive') && this.get('_oldViewWidthDebounced') !== w) ||
+      (this.get('resizeHeightSensitive') && this.get('_oldViewHeightDebounced') !== h)
+    ) {
       this.debouncedDidResize(w, h, evt);
       this.setProperties({
         _oldViewWidthDebounced: w,

@@ -1,3 +1,12 @@
+## [0.0.17](https://github.com/mike-north/ember-resize/compare/v0.0.16...v0.0.17) (2018-08-22)
+
+
+### Bug Fixes
+
+* semantic-release ([2b3c864](https://github.com/mike-north/ember-resize/commit/2b3c864))
+* semantic-release in travis-ci ([245e2a2](https://github.com/mike-north/ember-resize/commit/245e2a2))
+* upgrade ember ([e191fed](https://github.com/mike-north/ember-resize/commit/e191fed))
+
 # Change Log
 
 ## [v0.0.7](https://github.com/truenorth/ember-resize/tree/v0.0.7) (2015-07-23)
