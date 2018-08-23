@@ -8,16 +8,16 @@ moduleFor('service:resize', 'Unit | Service | resize', {
 
 test('it fires "didResize"  when the window is resized', function(assert) {
 
-  let service = this.subject({
+  const service = this.subject({
+    heightSensitive: true,
     widthSensitive: false,
-    heightSensitive: true
   });
   let didResizeCallCount = 0;
-  service.on('didResize', function() {
+  service.on('didResize', () => {
     didResizeCallCount++;
   });
 
-  let evt = new window.Event('resize');
+  const evt = new Event('resize');
 
   window.dispatchEvent(evt);
   assert.equal(didResizeCallCount, 0, 'didResize called 0 time on event firing');
@@ -33,12 +33,12 @@ test('it fires "didResize"  when the window is resized', function(assert) {
 
 test('screenHeight is bound to the non debounced resize', function(assert) {
 
-  let service = this.subject({
+  const service = this.subject({
+    heightSensitive: true,
     widthSensitive: false,
-    heightSensitive: true
   });
 
-  let evt = new window.Event('resize');
+  const evt = new Event('resize');
 
   window.dispatchEvent(evt);
   assert.equal(service.get('screenHeight'), window.innerHeight);
@@ -47,19 +47,19 @@ test('screenHeight is bound to the non debounced resize', function(assert) {
 
 test('it fires "debouncedDidResize"  when the window is resized', function(assert) {
 
-  let done = assert.async();
+  const done = assert.async();
 
-  let service = this.subject({
+  const service = this.subject({
+    heightSensitive: true,
     widthSensitive: false,
-    heightSensitive: true
   });
 
   let debouncedDidResizeCallCount = 0;
-  service.on('debouncedDidResize', function() {
+  service.on('debouncedDidResize', () => {
     debouncedDidResizeCallCount++;
   });
 
-  let evt = new window.Event('resize');
+  const evt = new Event('resize');
 
   function triggerEvent() {
     window.dispatchEvent(evt);
