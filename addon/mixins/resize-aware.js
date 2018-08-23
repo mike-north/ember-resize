@@ -1,9 +1,13 @@
 import Mixin from '@ember/object/mixin';
+import { readOnly } from '@ember/object/computed';
 const { floor } = Math;
 
 export default Mixin.create({
   resizeEventsEnabled: true,
   resizeDebouncedEventsEnabled: true,
+
+  screenWidth: readOnly('resizeService.screenWidth'),
+  screenHeight: readOnly('resizeService.screenHeight'),
 
   _oldViewWidth: null,
   _oldViewHeight: null,
