@@ -1,3 +1,18 @@
+# [0.2.0](https://github.com/mike-north/ember-resize/compare/v0.1.0...v0.2.0) (2018-08-23)
+
+
+### Bug Fixes
+
+* convert a bunch of stuff to TypeScript ([5a83fd0](https://github.com/mike-north/ember-resize/commit/5a83fd0))
+* use TSLint to lint:js ([119266f](https://github.com/mike-north/ember-resize/commit/119266f))
+
+
+### Features
+
+* **mixin:** alias screen height/width ([66d4dea](https://github.com/mike-north/ember-resize/commit/66d4dea))
+* **service:** add screen height and screen width properties ([feedb39](https://github.com/mike-north/ember-resize/commit/feedb39))
+* add typescript support ([b5e1833](https://github.com/mike-north/ember-resize/commit/b5e1833))
+
 # [0.1.0](https://github.com/mike-north/ember-resize/compare/v0.0.16...v0.1.0) (2018-08-23)
 
 
