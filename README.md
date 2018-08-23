@@ -35,7 +35,7 @@ let MyView = Ember.View.extend({
 
 ### Mixin: `ResizeAware`
 
-A little sugar on top of the service, making it as easy as possible to respond to resize events in an ember-idiomatic way. Just as you can implement mouse events on your views via methods like `click`, you can now implement `didResize` and `debouncedDidResize` methods as well.
+A little sugar on top of the service, making it as easy as possible to respond to resize events in an ember-idiomatic way. Just as you can implement mouse events on your views via methods like `click`, you can now implement `didResize` and `debouncedDidResize` methods as well. When you use this mixin on a component, **resize events will only fire if that component's size is affected**.
 
 ```js
 import ResizeAware from 'ember-resize/mixins/resize-aware';
