@@ -4,7 +4,7 @@
   "description": "Idiomatically handle window and view resizes in Ember.js",
   "scripts": {
     "build": "ember build",
-    "lint:js": "eslint .",
+    "lint:js": "./node_modules/.bin/tslint --project .",
     "start": "ember serve",
     "test": "ember test",
     "test:all": "ember try:each",
