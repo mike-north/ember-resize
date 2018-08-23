@@ -1,3 +1,10 @@
+## [0.2.2](https://github.com/mike-north/ember-resize/compare/v0.2.1...v0.2.2) (2018-08-23)
+
+
+### Bug Fixes
+
+* update README to clarify purpose of mixin ([b84682e](https://github.com/mike-north/ember-resize/commit/b84682e)), closes [#82](https://github.com/mike-north/ember-resize/issues/82)
+
 ## [0.2.1](https://github.com/mike-north/ember-resize/compare/v0.2.0...v0.2.1) (2018-08-23)
 
 
