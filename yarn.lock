@@ -7439,9 +7439,9 @@ qunit-decorators@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/qunit-decorators/-/qunit-decorators-1.1.2.tgz#4a61bfe8a5ac9d2dd775e9767cb551eadc21303a"
 
-qunit-dom@^0.6.2:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/qunit-dom/-/qunit-dom-0.6.3.tgz#f6d7563218179c4f0ef85f940bb79e10631c14ff"
+qunit-dom@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/qunit-dom/-/qunit-dom-0.7.1.tgz#2e6ad4a6453c034f88ef415250b37e82572460b9"
   dependencies:
     broccoli-funnel "^2.0.0"
     broccoli-merge-trees "^2.0.0"
