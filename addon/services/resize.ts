@@ -1,5 +1,4 @@
-import { oneWay, readOnly } from '@ember-decorators/object/computed';
-import { getWithDefault, set } from '@ember/object';
+import { computed, getWithDefault, set } from '@ember/object';
 import Evented from '@ember/object/evented';
 import { cancel, debounce } from '@ember/runloop';
 import Service from '@ember/service';
@@ -17,20 +16,20 @@ export interface ResizeDefaults {
   injectionFactories?: string[];
 }
 
-class ResizeService extends Service.extend(Evented) {
+class ResizeService extends Service.extend(Evented, {
+   debounceTimeout: computed.oneWay('defaultDebounceTimeout'),
+   heightSensitive: computed.oneWay('defaultHeightSensitive'),
+   screenHeight: computed.readOnly('_oldHeight'),
+   screenWidth: computed.readOnly('_oldWidth'),
+   widthSensitive: computed.oneWay('defaultWidthSensitive'),
+}) {
   public _oldWidth = window.innerWidth;
   public _oldHeight = window.innerHeight;
   public _oldWidthDebounced = window.innerWidth;
   public _oldHeightDebounced = window.innerHeight;
 
-  @oneWay('defaultDebounceTimeout') public debounceTimeout!: number;
-  @oneWay('defaultWidthSensitive') public widthSensitive!: boolean;
-  @oneWay('defaultHeightSensitive') public heightSensitive!: boolean;
-
   public resizeServiceDefaults!: ResizeDefaults;
 
-  @readOnly('_oldWidth') public screenWidth!: number;
-  @readOnly('_oldHeight') public screenHeight!: number;
   public _onResizeHandler?: (this: Window, evt: UIEvent) => void;
   public _scheduledDebounce?: ReturnType<typeof debounce>;
   constructor() {

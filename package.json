@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/mike-north/ember-resize",
   "devDependencies": {
-    "@ember-decorators/babel-transforms": "^2.0.0",
     "@mike-north/js-lib-semantic-release-config": "^0.0.0-development",
     "@types/ember": "^2.8.32",
     "@types/ember-qunit": "^3.0.3",
@@ -41,7 +40,6 @@
     "ember-cli-tslint": "^0.1.4",
     "ember-cli-typescript": "^1.4.0",
     "ember-cli-uglify": "^2.0.0",
-    "ember-decorators": "^2.3.1",
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^2.0.0",
