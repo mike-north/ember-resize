@@ -1,3 +1,19 @@
+# [0.1.0](https://github.com/mike-north/ember-resize/compare/v0.0.16...v0.1.0) (2018-08-23)
+
+
+### Bug Fixes
+
+* remove travis-CI npm deploy ([e547a88](https://github.com/mike-north/ember-resize/commit/e547a88))
+* semantic-release ([2b3c864](https://github.com/mike-north/ember-resize/commit/2b3c864))
+* semantic-release in travis-ci ([245e2a2](https://github.com/mike-north/ember-resize/commit/245e2a2))
+* upgrade ember ([e191fed](https://github.com/mike-north/ember-resize/commit/e191fed))
+
+
+### Features
+
+* code formatting ([4fed02d](https://github.com/mike-north/ember-resize/commit/4fed02d))
+* semantic-release setup ([e0b0d61](https://github.com/mike-north/ember-resize/commit/e0b0d61))
+
 ## [0.0.17](https://github.com/mike-north/ember-resize/compare/v0.0.16...v0.0.17) (2018-08-22)
 
 
