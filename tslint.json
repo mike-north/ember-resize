@@ -1,0 +1,16 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint:recommended"
+  ],
+  "jsRules": {
+    "quotemark": [true, "single"],
+    "variable-name": [true, "allow-leading-underscore"]
+  },
+  "rules": {
+    "quotemark": [true, "single"],
+    "variable-name": [true, "allow-leading-underscore"],
+    "interface-name": false
+  },
+  "rulesDirectory": []
+}
