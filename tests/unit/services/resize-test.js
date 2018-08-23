@@ -20,14 +20,28 @@ test('it fires "didResize"  when the window is resized', function(assert) {
   let evt = new window.Event('resize');
 
   window.dispatchEvent(evt);
-  assert.equal(didResizeCallCount, 1, 'didResize called 1 time on event firing');
+  assert.equal(didResizeCallCount, 0, 'didResize called 0 time on event firing');
   service.incrementProperty('_oldHeight', -20);
   window.dispatchEvent(evt);
-  assert.equal(didResizeCallCount, 2, 'didResize called another time on event firing again');
+  assert.equal(didResizeCallCount, 1, 'didResize called 1 time on event firing');
   service.set('heightSensitive', false);
   service.incrementProperty('_oldHeight', -20);
   window.dispatchEvent(evt);
-  assert.equal(didResizeCallCount, 2, 'didResize shouldn\'t be called again if heightSensitive is false');
+  assert.equal(didResizeCallCount, 1, 'didResize shouldn\'t be called again if heightSensitive is false');
+
+});
+
+test('screenHeight is bound to the non debounced resize', function(assert) {
+
+  let service = this.subject({
+    widthSensitive: false,
+    heightSensitive: true
+  });
+
+  let evt = new window.Event('resize');
+
+  window.dispatchEvent(evt);
+  assert.equal(service.get('screenHeight'), window.innerHeight);
 
 });
 
@@ -55,6 +69,7 @@ test('it fires "debouncedDidResize"  when the window is resized', function(asser
     later(triggerEvent, 10);
   }
 
+  service.incrementProperty('_oldHeightDebounced', -20);
   assert.equal(debouncedDidResizeCallCount, 0, 'debouncedDidResize not called yet');
   later(() => {
     assert.equal(debouncedDidResizeCallCount, 1, 'debouncedDidResize called 1 time after 500ms');
