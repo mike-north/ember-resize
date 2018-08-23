@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/mike-north/ember-resize/compare/v0.2.0...v0.2.1) (2018-08-23)
+
+
+### Bug Fixes
+
+* ensure resize service is present in tests ([b7a518b](https://github.com/mike-north/ember-resize/commit/b7a518b))
+* ensure resize service is present in tests fixes [#43](https://github.com/mike-north/ember-resize/issues/43) ([d2fa677](https://github.com/mike-north/ember-resize/commit/d2fa677))
+* remove ember-decorators ([eb3275e](https://github.com/mike-north/ember-resize/commit/eb3275e))
+
 # [0.2.0](https://github.com/mike-north/ember-resize/compare/v0.1.0...v0.2.0) (2018-08-23)
 
 
