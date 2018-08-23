@@ -16,7 +16,8 @@
   "rules": {
     "quotemark": [true, "single"],
     "variable-name": [true, "allow-leading-underscore"],
-    "interface-name": false
+    "interface-name": false,
+    "member-access": false
   },
   "rulesDirectory": []
 }
