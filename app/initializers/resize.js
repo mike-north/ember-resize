@@ -12,6 +12,9 @@ export function initialize() {
   });
   const injectionFactories = getWithDefault(resizeServiceDefaults, 'injectionFactories', ['view', 'component']) ;
 
+  application.unregister('config:resize-service');
+  application.unregister('service:resize');
+
   application.register('config:resize-service', resizeServiceDefaults, { instantiate: false });
   application.register('service:resize', ResizeService);
   application.inject('service:resize', 'resizeServiceDefaults', 'config:resize-service');
