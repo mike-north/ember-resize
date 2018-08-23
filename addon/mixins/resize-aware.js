@@ -1,6 +1,4 @@
-import Ember from 'ember';
-
-const { Mixin } = Ember;
+import Mixin from '@ember/object/mixin';
 const { floor } = Math;
 
 export default Mixin.create({
@@ -38,7 +36,7 @@ export default Mixin.create({
   debouncedDidResize(/*width, height, evt*/) {}, // Overridden in subclass
 
   _getComponentSize() {
-    return this.$()[0].getClientRects()[0];
+    return this.element.getClientRects()[0];
   },
 
   _handleResizeEvent(evt) {

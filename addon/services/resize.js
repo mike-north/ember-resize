@@ -1,11 +1,14 @@
-import Ember from 'ember';
+import { keys as emberKeys } from '@ember/polyfills';
+import Service from '@ember/service';
+import Evented from '@ember/object/evented';
+import { classify } from '@ember/string';
+import { oneWay } from '@ember/object/computed';
+import { debounce } from '@ember/runloop';
+import EmberObject, { set, getWithDefault } from '@ember/object';
 
 // jscs:disable disallowDirectPropertyAccess
-const Base = Ember.Service || Ember.Object;
-const keys = Object.keys || Ember.keys;
-// jscs:enable disallowDirectPropertyAccess
-
-const { Evented, String: { classify }, computed: { oneWay }, run: { debounce }, getWithDefault, set } = Ember;
+const Base = Service || EmberObject;
+const keys = Object.keys || emberKeys;
 
 export default Base.extend(Evented, {
   _oldWidth: null,
@@ -20,34 +23,40 @@ export default Base.extend(Evented, {
   init() {
     this._super(...arguments);
     this._setDefaults();
-    this._onResizeHandler = (evt) => {
+    this._onResizeHandler = evt => {
       this._fireResizeNotification(evt);
       debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
     };
-    this._installResizeListener();
+    if (typeof FastBoot === 'undefined') {
+      this._installResizeListener();
+    }
   },
 
   destroy() {
     this._super(...arguments);
-    this._uninstallResizeListener();
+    if (typeof FastBoot === 'undefined') {
+      this._uninstallResizeListener();
+    }
   },
 
   _setDefaults() {
     const defaults = getWithDefault(this, 'resizeServiceDefaults', {});
 
-    keys(defaults).map((key) => {
+    keys(defaults).map(key => {
       const classifiedKey = classify(key);
       const defaultKey = `default${classifiedKey}`;
       return set(this, defaultKey, defaults[key]);
     });
   },
 
-  _hasWindowSizeChanged(w, h, debounced=false) {
-    return (this.get('widthSensitive') && (w !== this.get(`_oldWidth${debounced ? 'Debounced' : ''}`))) ||
-          (this.get('heightSensitive') && (h !== this.get(`_oldHeight${debounced ? 'Debounced' : ''}`)));
+  _hasWindowSizeChanged(w, h, debounced = false) {
+    return (
+      (this.get('widthSensitive') && w !== this.get(`_oldWidth${debounced ? 'Debounced' : ''}`)) ||
+      (this.get('heightSensitive') && h !== this.get(`_oldHeight${debounced ? 'Debounced' : ''}`))
+    );
   },
 
-  _updateCachedWindowSize(w, h, debounced=false) {
+  _updateCachedWindowSize(w, h, debounced = false) {
     const wKey = `_oldWidth${debounced ? 'Debounced' : ''}`;
     const hKey = `_oldHeight${debounced ? 'Debounced' : ''}`;
     let props = {};

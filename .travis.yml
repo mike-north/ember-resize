@@ -1,23 +1,35 @@
+---
 language: node_js
 node_js:
-- 0.12.2
-sudo: false
+  - "8"
+
+sudo: required
+dist: trusty
+
+addons:
+  chrome: stable
+
 cache:
-  directories:
-  - node_modules
+  yarn: true
+
+before_script:
+  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+  - sudo chown root /opt/google/chrome/chrome-sandbox
+
 env:
+  global:
+    # See https://git.io/vdao3 for details.
+    - JOBS=1
   matrix:
-  - EMBER_TRY_SCENARIO=ember-1.10
-  - EMBER_TRY_SCENARIO=ember-1.11
-  - EMBER_TRY_SCENARIO=ember-1.12
-  - EMBER_TRY_SCENARIO=ember-1.13
-  - EMBER_TRY_SCENARIO=ember-2.0
-  - EMBER_TRY_SCENARIO=ember-2.1
-  - EMBER_TRY_SCENARIO=ember-2.2
-  - EMBER_TRY_SCENARIO=ember-2.3
-  - EMBER_TRY_SCENARIO=ember-release
-  - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-beta
-  - ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+    # we recommend new addons test the current and previous LTS
+    # as well as latest stable release (bonus points to beta/canary)
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-lts-2.16
+    - EMBER_TRY_SCENARIO=ember-lts-2.18
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
+    - EMBER_TRY_SCENARIO=ember-default
   global:
     secure: mlHPZlkzVu5JpCzFNz+o/+DGyI6K2VLh5fY2zoAjuClRazPJ/04tKo8Fxol5U32jpeI6LXJlsyu+lO914q2L0M6+i7iTU1XFeL9PbSdK8IK1AdHWFiJAlli+7eDpkan3FnSg9Y3yjmYrKcaVimVMDmk0GlSiUBOlyic/gEj5uPguC1ACwzFVkwgOrxzUITLg6qtwgYGyJUY8QJb3baoFtZZrpSFqHvzPl2Wr7AIXAcVldl7S5fQUEsQ8gKEa8ZCbCMWvebNXDf8v7C/OwjJnh9awZDcNE5pPavV3mvftDY9QQEulxhhoXowJR/X+1lMcMzgkNtEcDceoRSTHG4z98ASQjsx6aywsZiGaqZlfCvpgkmruXTjCaVPR5lGd1imP+arrxlN6Kn6m+kKdf9KnmV7UIt+Q4lbDsWkNQXNuLC8Ag6okJSPXI3CghxRC8L/NR7iiapjs4SrImTUu9+eJMal93FTWqjQdTkZYWYD5ncKvOzFOX7w+PkmVAH/R8nnuQ+MZwhqi3TO7ieWGcC59mS7BeNokElXSpGUiR+4YahZMNYM27XV8RHXpik8DBvrlHQGtCpNtmZwmNSKR66Y/QgKdL1FJ7XEc+LqeRqkXXe9mEbcfMY7YzWDK1dc4+lFwRq24yxVX0/d40fe4T5CZ5K6RkHODpyHY15CYorEXT0c=
 
@@ -26,29 +38,24 @@ matrix:
   allow_failures:
     - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
 
-before_install:
-- mkdir travis-phantomjs
-- wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-- tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
-- export PATH=$PWD/travis-phantomjs:$PATH
-- npm config set spin false
-- npm install -g npm@^2
 install:
-- npm install -g bower
-- npm install
-- bower install
-# before_script:
-# - ember sauce:connect
+  - yarn install --no-lockfile --non-interactive
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+
 script:
-- ember try $EMBER_TRY_SCENARIO test --skip-cleanup
+  - yarn lint:js
+  # Usually, it's ok to finish the test scenario without reverting
+  #  to the addon's original dependency state, skipping "cleanup".
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+
 # after_script:
 # - ember sauce:disconnect
-deploy:
-  provider: npm
-  email: michael.l.north@gmail.com
-  api_key:
-    secure: hcFfd5SfBqVbyS1NP2MM6u+B6fK6uVD1zzUrmOPqFczEJ02NNXI3W+x7XHeX3OFYiN27iIpdzMtF1/VUV4+GUc4YotABYzcPi4+DED9Ns6O6dEYQ0SX1CcPyrB0jlsEl8QOJJErQP0LJ7XN24xbtEoXqgxbiknId1Mg2OS9++vlMK+ny6SoBwJrWUTWEvHW3a6Gl/aaNFUSJTTGIyG/iChnB18s949AV4qMfslrdBmos9Gnn5Po90Vq0bj38P8Z0zEHh4o2Z6cwliX2qOAa4jzHzoXAb3CNXzX1EiVbqEn9Ph9MjR8p7l2zm3T/K9Rc3fUnz8nHeIOlT15w/1BOzCrY85QC/R1pdx+cdA6GOVR2yX+MeeawzTbjXtaP6gsdvNSvv7t6VhqbmoQJWMPccO473bfuwPM+qvW4X22/Z7cxdYbfbAhwtukbcXUoY8W9hPzqwTJueqNyfDjpaEfcNh8wuv+UnhmlDXiqVdonkFdh0b2Ac+RuLsicYvoLdGQMIgenTb88kdGy30EKJTO1kA3WzKQKm24uqADH7ZnHd2HvCeasWE18JXWOFNViNzMbnfS732ApALY0of7giZ0P3J1LY9OxoXxJA77hfsKfyU1u2vPxTKPakYamlca5g93p0H2kBJJedZru6az+O8BZhK2v0EyKwsEbUdXtC+fIIeFM=
-  on:
-    tags: true
-    repo: mike-north/ember-resize
+
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

@@ -1,7 +1,5 @@
-import Ember from 'ember';
+import { later } from '@ember/runloop';
 import { moduleFor, test } from 'ember-qunit';
-
-const { run: { later } } = Ember;
 
 moduleFor('service:resize', 'Unit | Service | resize', {
   // Specify the other units that are required for this test.

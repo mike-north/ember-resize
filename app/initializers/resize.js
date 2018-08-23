@@ -1,11 +1,16 @@
 import ResizeService from 'ember-resize/services/resize';
 import config from '../config/environment';
+import { getWithDefault } from '@ember/object';
 
 export function initialize() {
   let application = arguments[1] || arguments[0];
 
-  const { resizeServiceDefaults } = config;
-  const { injectionFactories } = resizeServiceDefaults;
+  const resizeServiceDefaults = getWithDefault(config, 'resizeServiceDefaults', {
+    widthSensitive: true,
+    heightSensitive: true,
+    debounceTimeout: 200
+  });
+  const injectionFactories = getWithDefault(resizeServiceDefaults, 'injectionFactories', ['view', 'component']) ;
 
   application.register('config:resize-service', resizeServiceDefaults, { instantiate: false });
   application.register('service:resize', ResizeService);
