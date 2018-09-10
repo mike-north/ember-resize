@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mike-north/ember-resize",
   "devDependencies": {
     "@mike-north/js-lib-semantic-release-config": "^0.0.0-development",
-    "@types/ember": "^2.8.32",
+    "@types/ember": "^3.0.2",
     "@types/ember-qunit": "^3.0.3",
     "@types/ember-test-helpers": "^1.0.0",
     "@types/ember-testing-helpers": "^0.0.3",
