@@ -3385,6 +3385,24 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
+ember-cli-babel@^6.16.0:
+  version "6.17.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.17.2.tgz#f0d53d2fb95e70c15d8db84760d045f88f458f69"
+  dependencies:
+    amd-name-resolver "1.2.0"
+    babel-plugin-debug-macros "^0.2.0-beta.6"
+    babel-plugin-ember-modules-api-polyfill "^2.5.0"
+    babel-plugin-transform-es2015-modules-amd "^6.24.0"
+    babel-polyfill "^6.26.0"
+    babel-preset-env "^1.7.0"
+    broccoli-babel-transpiler "^6.5.0"
+    broccoli-debug "^0.6.4"
+    broccoli-funnel "^2.0.0"
+    broccoli-source "^1.1.0"
+    clone "^2.0.0"
+    ember-cli-version-checker "^2.1.2"
+    semver "^5.5.0"
+
 ember-cli-babel@^7.1.0:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.1.2.tgz#543c64368d6138d12656db1143c02df1f2b0ee9c"
@@ -3745,10 +3763,10 @@ ember-maybe-import-regenerator@^0.1.6:
     regenerator-runtime "^0.9.5"
 
 ember-qunit-decorators@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/ember-qunit-decorators/-/ember-qunit-decorators-1.2.0.tgz#c416177e3a591c509b3704a09a20378564e49b2a"
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/ember-qunit-decorators/-/ember-qunit-decorators-1.3.0.tgz#0ad86f09e6de3f97ef0fdb912d04bd081c218440"
   dependencies:
-    ember-cli-babel "^6.6.0"
+    ember-cli-babel "^6.16.0"
     qunit-decorators "^1.1.1"
 
 ember-qunit@^3.3.2:
