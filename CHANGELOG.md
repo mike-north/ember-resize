@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/mike-north/ember-resize/compare/v0.2.2...v0.2.3) (2018-10-11)
+
+
+### Bug Fixes
+
+* remove ember-cli-shims ([d507c06](https://github.com/mike-north/ember-resize/commit/d507c06))
+
 ## [0.2.2](https://github.com/mike-north/ember-resize/compare/v0.2.1...v0.2.2) (2018-08-23)
 
 
