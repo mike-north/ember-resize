@@ -12,30 +12,30 @@ declare global {
 export interface ResizeDefaults {
   widthSensitive?: boolean;
   heightSensitive?: boolean;
-  debounceTimeout?: number   ;
+  debounceTimeout?: number;
   injectionFactories?: string[];
 }
 
 class ResizeService extends Service.extend(Evented, {
-   debounceTimeout: computed.oneWay('defaultDebounceTimeout'),
-   heightSensitive: computed.oneWay('defaultHeightSensitive'),
-   screenHeight: computed.readOnly('_oldHeight'),
-   screenWidth: computed.readOnly('_oldWidth'),
-   widthSensitive: computed.oneWay('defaultWidthSensitive'),
+  debounceTimeout: computed.oneWay('defaultDebounceTimeout'),
+  heightSensitive: computed.oneWay('defaultHeightSensitive'),
+  screenHeight: computed.readOnly('_oldHeight'),
+  screenWidth: computed.readOnly('_oldWidth'),
+  widthSensitive: computed.oneWay('defaultWidthSensitive')
 }) {
   public _oldWidth = window.innerWidth;
   public _oldHeight = window.innerHeight;
   public _oldWidthDebounced = window.innerWidth;
   public _oldHeightDebounced = window.innerHeight;
 
-  public resizeServiceDefaults!: ResizeDefaults;
+  public resizeServiceDefaults!: Partial<ResizeDefaults>;
 
   public _onResizeHandler?: (this: Window, evt: UIEvent) => void;
   public _scheduledDebounce?: ReturnType<typeof debounce>;
   constructor() {
     super(...arguments);
     this._setDefaults();
-    this._onResizeHandler = (evt) => {
+    this._onResizeHandler = evt => {
       this._fireResizeNotification(evt);
       const scheduledDebounce = debounce(this, this._fireDebouncedResizeNotification, evt, this.get('debounceTimeout'));
       this._scheduledDebounce = scheduledDebounce;
@@ -55,9 +55,9 @@ class ResizeService extends Service.extend(Evented, {
   }
 
   public _setDefaults() {
-    const defaults = getWithDefault(this, 'resizeServiceDefaults', {});
+    const defaults = getWithDefault(this, 'resizeServiceDefaults', {} as any);
 
-    Object.keys(defaults).map((key: keyof ResizeDefaults ) => {
+    Object.keys(defaults).map((key: keyof ResizeDefaults) => {
       const classifiedKey = classify(key);
       const defaultKey = `default${classifiedKey}`;
       return set(this as any, defaultKey, defaults[key]);
@@ -68,8 +68,7 @@ class ResizeService extends Service.extend(Evented, {
     const wKey = debounced ? '_oldWidthDebounced' : '_oldWidth';
     const hKey = debounced ? '_oldHeightDebounced' : '_oldHeight';
     return (
-      (this.get('widthSensitive') && w !== this.get(wKey)) ||
-      (this.get('heightSensitive') && h !== this.get(hKey))
+      (this.get('widthSensitive') && w !== this.get(wKey)) || (this.get('heightSensitive') && h !== this.get(hKey))
     );
   }
 
@@ -81,17 +80,23 @@ class ResizeService extends Service.extend(Evented, {
   }
 
   public _installResizeListener() {
-    if (!this._onResizeHandler) { return; }
+    if (!this._onResizeHandler) {
+      return;
+    }
     window.addEventListener('resize', this._onResizeHandler);
   }
 
   public _uninstallResizeListener() {
-    if (!this._onResizeHandler) { return; }
+    if (!this._onResizeHandler) {
+      return;
+    }
     window.removeEventListener('resize', this._onResizeHandler);
   }
 
   public _cancelScheduledDebounce() {
-    if (!this._scheduledDebounce) { return; }
+    if (!this._scheduledDebounce) {
+      return;
+    }
     cancel(this._scheduledDebounce);
   }
 

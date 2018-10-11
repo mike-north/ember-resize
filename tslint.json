@@ -1,13 +1,8 @@
 {
   "defaultSeverity": "error",
-  "extends": [
-      "tslint:recommended"
-  ],
+  "extends": ["tslint:recommended"],
   "linterOptions": {
-    "exclude": [
-      "tests/dummy/**/*",
-      "node_modules/**/*"
-    ]
+    "exclude": ["tests/dummy/**/*", "node_modules/**/*"]
   },
   "jsRules": {
     "quotemark": [true, "single"],
@@ -17,7 +12,8 @@
     "quotemark": [true, "single"],
     "variable-name": [true, "allow-leading-underscore"],
     "interface-name": false,
-    "member-access": false
+    "member-access": false,
+    "arrow-parens": false
   },
   "rulesDirectory": []
 }
