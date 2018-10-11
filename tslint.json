@@ -13,7 +13,8 @@
     "variable-name": [true, "allow-leading-underscore"],
     "interface-name": false,
     "member-access": false,
-    "arrow-parens": false
+    "arrow-parens": false,
+    "trailing-comma": false
   },
   "rulesDirectory": []
 }
