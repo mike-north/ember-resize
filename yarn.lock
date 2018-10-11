@@ -3655,6 +3655,13 @@ debug@3.1.0, debug@^3.1.0, debug@~3.1.0:
   dependencies:
     ms "2.0.0"
 
+debug@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
+  integrity sha512-heNPJUJIqC+xB6ayLAMHaIrmN9HKa7aQO8MGqKpvCA+uJYVcvR6l5kgdrhRuwPFHU7P5/A1w0BjByPHwpfTDKg==
+  dependencies:
+    ms "^2.1.1"
+
 debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
@@ -4541,12 +4548,12 @@ entities@~1.1.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
   integrity sha1-blwtClYhtdra7O+AuQ7ftc13cvA=
 
-env-ci@^2.0.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/env-ci/-/env-ci-2.1.1.tgz#73c42c0f3ee4813457210a8440a2ee1bbea0102a"
-  integrity sha512-7KVsNirTANngtXZkKzbO/9xtHB51rNzauhuKRKBj2itgATsD/N9ZjyfWNmfiUF9aZIaoqrZ8x0HS8M7Bsk7dBQ==
+env-ci@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/env-ci/-/env-ci-3.1.0.tgz#8aef2340389ae17e27623988ae1002f130491185"
+  integrity sha512-+yFT8QX8W9bee0/fuzKvqt2vEhWvU3FXZ1P5xbveDq/EqcYLh4e0QNE16okUS3pawALDGXE9eCJPVeWY0/ilQA==
   dependencies:
-    execa "^0.10.0"
+    execa "^1.0.0"
     java-properties "^0.2.9"
 
 err-code@^1.0.0:
@@ -7998,7 +8005,7 @@ ms@2.0.0:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
   integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
 
-ms@^2.0.0:
+ms@^2.0.0, ms@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
@@ -10125,9 +10132,9 @@ sax@^1.2.4:
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
 semantic-release@^15.9.9:
-  version "15.9.11"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.9.11.tgz#089a4b419aac3d4b363f5ebc8be2829085d9bef7"
-  integrity sha512-NmRpxDUeAH0j2dFkJYEHpZEZzotL0RF0SNjUCwaEMTa2yB15olUOzWyvZtQXxwsGaWzCsdnLfCehasdXrfmxVA==
+  version "15.9.17"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.9.17.tgz#fe3eb554e1e186da167b30c61bb1f9a454ebeabc"
+  integrity sha512-Z+LAJBuPD2pcPpRdF0zC9bwHeZkNUqgENEkWzuFdcpocA0FmFZVLMPcdZGR1+jVOjD1yiLli3MMCFYrpegIxTg==
   dependencies:
     "@semantic-release/commit-analyzer" "^6.0.0"
     "@semantic-release/error" "^2.2.0"
@@ -10136,8 +10143,8 @@ semantic-release@^15.9.9:
     "@semantic-release/release-notes-generator" "^7.0.0"
     aggregate-error "^1.0.0"
     cosmiconfig "^5.0.1"
-    debug "^3.1.0"
-    env-ci "^2.0.0"
+    debug "^4.0.0"
+    env-ci "^3.0.0"
     execa "^1.0.0"
     figures "^2.0.0"
     find-versions "^2.0.0"
