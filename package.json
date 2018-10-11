@@ -36,7 +36,6 @@
     "ember-cli-inject-live-reload": "^1.4.0",
     "ember-cli-qunit": "^4.3.2",
     "ember-cli-release": "1.0.0-beta.2",
-    "ember-cli-shims": "^1.2.0",
     "ember-cli-tslint": "^0.1.4",
     "ember-cli-typescript": "^1.4.0",
     "ember-cli-uglify": "^2.0.0",
