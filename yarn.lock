@@ -963,10 +963,10 @@
   dependencies:
     "@types/handlebars" "*"
 
-"@types/ember__test-helpers@0.7.5":
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/@types/ember__test-helpers/-/ember__test-helpers-0.7.5.tgz#219305edc96875995114952a3b7902a8fbe754a1"
-  integrity sha512-7E1XVzzGDXERJFxKSPAoiCs550DGEHiRtFBTPjiQ5m3gAV5Aeet0HP0/ODAccXE7PuI8wJXzrXkRgceviVfJxQ==
+"@types/ember__test-helpers@0.7.6":
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/@types/ember__test-helpers/-/ember__test-helpers-0.7.6.tgz#f26050fc74cd8ce111ee9e01864a293d6a9ac7ac"
+  integrity sha512-TEIitF7M984drIuK1iKHWfU7BLvdp4qakC7Qwmz88HoJxjdMKHHYAIIVO+SPZdXBCmPjOmCs87bz2okMs9nU2Q==
   dependencies:
     "@types/ember" "*"
     "@types/ember__error" "*"
