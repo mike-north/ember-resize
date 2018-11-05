@@ -4536,10 +4536,10 @@ ember-maybe-import-regenerator@0.1.6:
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
-ember-qunit-decorators@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/ember-qunit-decorators/-/ember-qunit-decorators-1.3.0.tgz#0ad86f09e6de3f97ef0fdb912d04bd081c218440"
-  integrity sha512-VgGg7CbYMZZxD+4t1fE04TaSrN+Ag1RJRoCgQa4YV2HYp8gI0Jy6w6BB+RZ4DRxHj/JJ2rGUi/ZcDiV3XStjAg==
+ember-qunit-decorators@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/ember-qunit-decorators/-/ember-qunit-decorators-1.4.0.tgz#d345206908d32f4621948ae99626ee8a6b6e7401"
+  integrity sha512-2KVuPAoVoEp+TM4MUC7Fvc6hUSQ7ZenNLivCTDJ03bUXdE/3eke4zy5rRUCOcnre3mnfjxsSZNYrPtNerdNjrA==
   dependencies:
     ember-cli-babel "^6.16.0"
     qunit-decorators "^1.1.1"
