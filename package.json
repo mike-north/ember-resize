@@ -26,7 +26,7 @@
     "@types/ember__test-helpers": "0.7.6",
     "@types/qunit": "2.5.3",
     "@types/rsvp": "4.0.2",
-    "babel-eslint": "9.0.0",
+    "babel-eslint": "10.0.1",
     "broccoli-asset-rev": "3.0.0",
     "ember-cli": "3.5.0",
     "ember-cli-app-version": "3.2.0",
