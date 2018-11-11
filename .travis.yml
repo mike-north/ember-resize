@@ -1,7 +1,6 @@
----
 language: node_js
 node_js:
-  - "8"
+  - '8'
 
 sudo: required
 dist: trusty
@@ -20,23 +19,40 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
-  matrix:
+
+jobs:
+  fail_fast: true
+  allow_failures:
+    - env: EMBER_TRY_SCENARIO=ember-canary
+
+  include:
+    # runs linting and tests with current locked deps
+
+    - stage: 'Tests'
+      name: 'Tests'
+      install:
+        - yarn install --non-interactive
+      script:
+        - yarn lint:ts
+        - ember test
+
+    - name: 'Floating Dependencies'
+      script:
+        - ember test
+
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
-    - EMBER_TRY_SCENARIO=ember-lts-2.12
-    - EMBER_TRY_SCENARIO=ember-lts-2.16
-    - EMBER_TRY_SCENARIO=ember-lts-2.18
-    - EMBER_TRY_SCENARIO=ember-release
-    - EMBER_TRY_SCENARIO=ember-beta
-    - EMBER_TRY_SCENARIO=ember-canary
-    - EMBER_TRY_SCENARIO=ember-default
-  global:
-    secure: mlHPZlkzVu5JpCzFNz+o/+DGyI6K2VLh5fY2zoAjuClRazPJ/04tKo8Fxol5U32jpeI6LXJlsyu+lO914q2L0M6+i7iTU1XFeL9PbSdK8IK1AdHWFiJAlli+7eDpkan3FnSg9Y3yjmYrKcaVimVMDmk0GlSiUBOlyic/gEj5uPguC1ACwzFVkwgOrxzUITLg6qtwgYGyJUY8QJb3baoFtZZrpSFqHvzPl2Wr7AIXAcVldl7S5fQUEsQ8gKEa8ZCbCMWvebNXDf8v7C/OwjJnh9awZDcNE5pPavV3mvftDY9QQEulxhhoXowJR/X+1lMcMzgkNtEcDceoRSTHG4z98ASQjsx6aywsZiGaqZlfCvpgkmruXTjCaVPR5lGd1imP+arrxlN6Kn6m+kKdf9KnmV7UIt+Q4lbDsWkNQXNuLC8Ag6okJSPXI3CghxRC8L/NR7iiapjs4SrImTUu9+eJMal93FTWqjQdTkZYWYD5ncKvOzFOX7w+PkmVAH/R8nnuQ+MZwhqi3TO7ieWGcC59mS7BeNokElXSpGUiR+4YahZMNYM27XV8RHXpik8DBvrlHQGtCpNtmZwmNSKR66Y/QgKdL1FJ7XEc+LqeRqkXXe9mEbcfMY7YzWDK1dc4+lFwRq24yxVX0/d40fe4T5CZ5K6RkHODpyHY15CYorEXT0c=
-
-matrix:
-  fast_finish: true
-  allow_failures:
-    - env: ALLOW_DEPRECATIONS=true EMBER_TRY_SCENARIO=ember-canary
+    - stage: 'Additional Tests'
+      node_js: '10'
+      env: EMBER_TRY_SCENARIO=ember-lts-2.16
+    - env: EMBER_TRY_SCENARIO=ember-lts-2.18
+    - env: EMBER_TRY_SCENARIO=ember-release
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+    - stage: 'Canary Tests'
+      script:
+        - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+      env: EMBER_TRY_SCENARIO=ember-canary
 
 install:
   - yarn install --no-lockfile --non-interactive
@@ -46,16 +62,8 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 
 script:
-  - yarn lint:js
-  # Usually, it's ok to finish the test scenario without reverting
-  #  to the addon's original dependency state, skipping "cleanup".
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO && yarn travis-deploy-once "yarn semantic-release"
 
-# after_script:
-# - ember sauce:disconnect
-
-after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
