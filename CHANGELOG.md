@@ -1,3 +1,11 @@
+# [0.3.0](https://github.com/mike-north/ember-resize/compare/v0.2.4...v0.3.0) (2018-11-11)
+
+
+### Features
+
+* dependency upgrades ([2ba59f0](https://github.com/mike-north/ember-resize/commit/2ba59f0))
+* shared semantic-release and renovate config ([704a9ae](https://github.com/mike-north/ember-resize/commit/704a9ae))
+
 ## [0.2.4](https://github.com/mike-north/ember-resize/compare/v0.2.3...v0.2.4) (2018-10-11)
 
 
