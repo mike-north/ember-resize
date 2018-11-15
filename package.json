@@ -55,7 +55,7 @@
     "loader.js": "4.7.0",
     "qunit-dom": "0.8.0",
     "typescript": "3.1.6",
-    "typescript-eslint-parser": "20.1.1"
+    "typescript-eslint-parser": "21.0.1"
   },
   "optionalDependencies": {
     "@mike-north/js-lib-renovate-config": "1.0.0",
