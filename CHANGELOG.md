@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/mike-north/ember-resize/compare/v0.3.0...v0.3.1) (2018-11-27)
+
+
+### Bug Fixes
+
+* optionalDependencies -> devDependencies ([9d13163](https://github.com/mike-north/ember-resize/commit/9d13163))
+
 # [0.3.0](https://github.com/mike-north/ember-resize/compare/v0.2.4...v0.3.0) (2018-11-11)
 
 
