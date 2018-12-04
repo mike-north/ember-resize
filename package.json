@@ -9,7 +9,6 @@
     "test": "ember test",
     "test:all": "ember try:each",
     "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once",
     "prepublishOnly": "ember ts:precompile",
     "postpublish": "ember ts:clean"
   },
@@ -57,7 +56,6 @@
     "loader.js": "4.7.0",
     "qunit-dom": "0.8.2",
     "semantic-release": "15.12.3",
-    "travis-deploy-once": "5.0.9",
     "typescript": "3.2.1",
     "typescript-eslint-parser": "21.0.2"
   },
