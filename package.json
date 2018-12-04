@@ -21,7 +21,7 @@
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-conventional": "7.1.2",
     "@commitlint/travis-cli": "7.2.1",
-    "@mike-north/js-lib-renovate-config": "1.0.0",
+    "@mike-north/js-lib-renovate-config": "1.1.1",
     "@mike-north/js-lib-semantic-release-config": "1.0.0",
     "@types/ember__test-helpers": "0.7.6",
     "@types/ember-qunit": "3.4.3",
