@@ -26,7 +26,7 @@
     "@types/ember-qunit": "3.4.3",
     "@types/ember-test-helpers": "1.0.4",
     "@types/ember-testing-helpers": "0.0.3",
-    "@types/ember": "3.0.25",
+    "@types/ember": "3.0.26",
     "@types/qunit": "2.5.3",
     "@types/rsvp": "4.0.2",
     "babel-eslint": "10.0.1",
