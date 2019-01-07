@@ -36,15 +36,14 @@ jobs:
     # runs linting and tests with current locked deps
 
     - stage: 'Tests'
-      name: 'Conventional Commits'
-      script: commitlint-travis
-    - name: 'Tests'
+      name: 'Conventional Commits, Linting & Fixed Dependencies'
       install:
         - yarn install --non-interactive
       script:
+        - commitlint-travis
         - yarn lint:ts
         - ember test
-
+        - ember ts:precompile
     - name: 'Floating Dependencies'
       script:
         - ember test
