@@ -21,7 +21,7 @@ class ResizeService extends Service.extend(Evented, {
   heightSensitive: computed.oneWay('defaultHeightSensitive'),
   screenHeight: computed.readOnly('_oldHeight'),
   screenWidth: computed.readOnly('_oldWidth'),
-  widthSensitive: computed.oneWay('defaultWidthSensitive')
+  widthSensitive: computed.oneWay('defaultWidthSensitive'),
 }) {
   public _oldWidth = window.innerWidth;
   public _oldHeight = window.innerHeight;
