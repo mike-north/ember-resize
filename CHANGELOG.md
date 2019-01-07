@@ -1,3 +1,10 @@
+## [0.3.2](https://github.com/mike-north/ember-resize/compare/v0.3.1...v0.3.2) (2019-01-07)
+
+
+### Bug Fixes
+
+* align prettier config with code formatting conventions ([0b0e15f](https://github.com/mike-north/ember-resize/commit/0b0e15f)), closes [#285](https://github.com/mike-north/ember-resize/issues/285)
+
 ## [0.3.1](https://github.com/mike-north/ember-resize/compare/v0.3.0...v0.3.1) (2018-11-27)
 
 
