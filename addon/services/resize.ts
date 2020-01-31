@@ -16,6 +16,16 @@ export interface ResizeDefaults {
   injectionFactories?: string[];
 }
 
+// This is a workaround to define the `resizeServiceDefaults` property on the
+// *type* `ResizeService`, while not stomping the property with a default value
+// of `void 0`: per the ES spec, a property declared on a class body with no
+// value is equivalent to `defineProperty(this, 'propertyName', void 0, ...)`.
+// Once this project is upgraded to use TS 3.7+, this can be replace dwith the
+// use of `declare resizeServiceDefaults: Partial<ResizeDefaults>` on the class.
+interface ResizeService {
+  resizeServiceDefaults: Partial<ResizeDefaults>;
+}
+
 class ResizeService extends Service.extend(Evented, {
   debounceTimeout: computed.oneWay('defaultDebounceTimeout'),
   heightSensitive: computed.oneWay('defaultHeightSensitive'),
@@ -27,8 +37,6 @@ class ResizeService extends Service.extend(Evented, {
   public _oldHeight = window.innerHeight;
   public _oldWidthDebounced = window.innerWidth;
   public _oldHeightDebounced = window.innerHeight;
-
-  public resizeServiceDefaults!: Partial<ResizeDefaults>;
 
   public _onResizeHandler?: (this: Window, evt: UIEvent) => void;
   public _scheduledDebounce?: ReturnType<typeof debounce>;
