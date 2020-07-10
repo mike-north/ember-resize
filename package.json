@@ -53,7 +53,7 @@
     "eslint-plugin-typescript": "0.14.0",
     "loader.js": "4.7.0",
     "qunit-dom": "1.2.0",
-    "semantic-release": "15.12.4",
+    "semantic-release": "15.12.5",
     "typescript": "3.2.2",
     "typescript-eslint-parser": "21.0.2"
   },
