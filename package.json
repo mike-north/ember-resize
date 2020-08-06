@@ -48,11 +48,11 @@
     "ember-source": "3.20.3",
     "ember-source-channel-url": "1.2.0",
     "ember-try": "1.4.0",
-    "eslint-plugin-ember": "8.9.2",
+    "eslint-plugin-ember": "8.10.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-typescript": "0.14.0",
     "loader.js": "4.7.0",
-    "qunit-dom": "1.2.0",
+    "qunit-dom": "1.4.0",
     "semantic-release": "15.12.5",
     "typescript": "3.2.4",
     "typescript-eslint-parser": "21.0.2"
