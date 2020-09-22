@@ -1393,10 +1393,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/ember-qunit@3.4.9":
-  version "3.4.9"
-  resolved "https://registry.yarnpkg.com/@types/ember-qunit/-/ember-qunit-3.4.9.tgz#df08d29609f906a081dc8f1c0e00b390fec3b4d7"
-  integrity sha512-XFe9EK9CVo431TJjS2a/bEcdRBCWFZeDYvYwZEDAlAVvVj9oApAX3bU4OEu9R9xHe6UhyvsgSa7dEr1tComRFQ==
+"@types/ember-qunit@3.4.10":
+  version "3.4.10"
+  resolved "https://registry.yarnpkg.com/@types/ember-qunit/-/ember-qunit-3.4.10.tgz#08a7a6247c3a6a3338b2c1168271095d8d7d0846"
+  integrity sha512-9pRpHBfLg0bKD/4nUOejUGAW07Jyj9LjvxaQcvwGdrMjFKpR5rbSDcCsWhfp/f2+xj1q/7RsF9tsPib0IHAqTA==
   dependencies:
     "@types/ember" "*"
     "@types/ember-test-helpers" "*"

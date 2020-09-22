@@ -23,7 +23,7 @@
     "@mike-north/js-lib-renovate-config": "1.2.0",
     "@mike-north/js-lib-semantic-release-config": "1.0.1",
     "@types/ember": "3.0.29",
-    "@types/ember-qunit": "3.4.9",
+    "@types/ember-qunit": "3.4.10",
     "@types/ember__test-helpers": "0.7.12",
     "@types/qunit": "2.5.4",
     "@types/rsvp": "4.0.3",
