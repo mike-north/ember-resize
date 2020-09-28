@@ -5067,10 +5067,10 @@ ember-cli-version-checker@^5.1.1:
     semver "^7.3.2"
     silent-error "^1.1.1"
 
-ember-cli@3.21.1:
-  version "3.21.1"
-  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-3.21.1.tgz#af82fe8102caee2bc684d844ece39a9ada837be0"
-  integrity sha512-Vuuzc8A+buctJ51mK2WOkR/NzdZBhaYgeWK3wZn1bZBYZ+iXLqxxgeH135Rb5TfzWsZJ63iiwnwQCzPsBrujxA==
+ember-cli@3.21.2:
+  version "3.21.2"
+  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-3.21.2.tgz#af99af5eba9882a326d8528fda31f219300d5591"
+  integrity sha512-sWOFy74DJ1dZqct0BxGEeGBAEjQUk4ZYZOj+J/PCy3JhDBYHnyBthE+4DdMj4Q211TInoI1UBetpt7x57M7JrA==
   dependencies:
     "@babel/core" "^7.11.0"
     "@babel/plugin-transform-modules-amd" "^7.10.5"
@@ -5541,10 +5541,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-plugin-ember@9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-9.1.0.tgz#29122732ed144328048671de596f3705715bce50"
-  integrity sha512-DAXhnepKIkI1/m3Dm94pR77wgeabWk8d2soidKgdHD6ZqyX+rCK4wpTz7lVKT0t5EyxC8cQ3bLOId8fc/G+7ow==
+eslint-plugin-ember@9.1.1:
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-9.1.1.tgz#b4ecd3c2e26faee685f8e91318257a933b4322e7"
+  integrity sha512-yEOaikB3/i9HnGN31JhP7kenrvXmmK/3b9Pazo4ErM7dpSHZ0GCH7xlN1H7eSmMqwcq0kAB5wcYSjF4hFiqQIA==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
     ember-rfc176-data "^0.3.15"
