@@ -1659,13 +1659,14 @@
   dependencies:
     "@types/node" "*"
 
-"@types/ember-qunit@3.4.10":
-  version "3.4.10"
-  resolved "https://registry.yarnpkg.com/@types/ember-qunit/-/ember-qunit-3.4.10.tgz#08a7a6247c3a6a3338b2c1168271095d8d7d0846"
-  integrity sha512-9pRpHBfLg0bKD/4nUOejUGAW07Jyj9LjvxaQcvwGdrMjFKpR5rbSDcCsWhfp/f2+xj1q/7RsF9tsPib0IHAqTA==
+"@types/ember-qunit@3.4.15":
+  version "3.4.15"
+  resolved "https://registry.yarnpkg.com/@types/ember-qunit/-/ember-qunit-3.4.15.tgz#333b3644f4c80af755f54f82ccdf3f1652cfac8d"
+  integrity sha512-ZWQcnLCsQfNq0MK9o0dt+reFn9Sk6rcMP2f/bkRRM/HCnNSD1XjMgnRhbKcDmCk0CmxTt5WtfSmlO0TYubcxcA==
   dependencies:
     "@types/ember" "*"
     "@types/ember-test-helpers" "*"
+    "@types/qunit" "*"
 
 "@types/ember-test-helpers@*":
   version "1.0.9"
@@ -1942,6 +1943,11 @@
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.5.tgz#434711bdd49eb5ee69d90c1d67c354a9a8ecb18b"
   integrity sha512-/JHkVHtx/REVG0VVToGRGH2+23hsYLHdyG+GrvoUGlGAd0ErauXDyvHtRI/7H7mzLm+tBCKA7pfcpkQ1lf58iQ==
 
+"@types/qunit@*":
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/@types/qunit/-/qunit-2.11.3.tgz#2900adb58eee250c96b2d33a923cc4eae70d72ba"
+  integrity sha512-UF/4jDehcpRlMXzKXi2Z59Id48/uYlMeUDhYdjFrVVwy30Eud/e60Ok3yVjSPlHprafj3B315uFTrF6eqQTeSw==
+
 "@types/qunit@2.5.4":
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/@types/qunit/-/qunit-2.5.4.tgz#0518940acc6013259a8619a1ec34ce0e4ff8d1c4"
@@ -1965,10 +1971,15 @@
     "@types/glob" "*"
     "@types/node" "*"
 
-"@types/rsvp@*", "@types/rsvp@4.0.3":
+"@types/rsvp@*":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@types/rsvp/-/rsvp-4.0.3.tgz#4a1223158453257bce09d42b9eef7cfa6d257482"
   integrity sha512-OpRwxbgx16nL/0/7ol0WoLLyLaMXBvtPOHjqLljnzAB/E7Qk1wtjytxgBhOTBMZvuLXnJUqfnjb4W/QclNFvSA==
+
+"@types/rsvp@4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/rsvp/-/rsvp-4.0.4.tgz#55e93e7054027f1ad4b4ebc1e60e59eb091e2d32"
+  integrity sha512-J3Ol++HCC7/hwZhanDvggFYU/GtxHxE/e7cGRWxR04BF7Tt3TqJZ84BkzQgDxmX0uu8IagiyfmfoUlBACh2Ilg==
 
 "@types/serve-static@*":
   version "1.13.6"
