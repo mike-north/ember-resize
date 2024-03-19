@@ -1,7 +1,7 @@
 import { ResizeDefaults } from 'ember-resize/services/resize';
 
-interface IEnvironment {
+declare const env: {
   resizeServiceDefaults: ResizeDefaults;
-}
-declare const env: IEnvironment;
-export = env;
+};
+
+export default env;
